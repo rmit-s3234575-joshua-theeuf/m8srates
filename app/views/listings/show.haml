@@ -77,9 +77,9 @@
           - text_with_line_breaks do
             = @listing.description
           -if @listing.category_id==2
-           =t(".Willing to invest")
-          -else
-           =t(".Wants to borrow")
+          =t(".Willing to invest")
+        - else
+          =t(".Wants to borrow")
           .listing-price
 
             %span.listing-price-amount
