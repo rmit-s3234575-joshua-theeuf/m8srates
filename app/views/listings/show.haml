@@ -76,6 +76,12 @@
         - if @listing.description && !@listing.description.blank?
           - text_with_line_breaks do
             = @listing.description
+          .listing-price
+            %span.listing-price-amount
+              = MoneyViewUtils.to_humanized(@listing.price)
+            - with_quantity_text(@current_community, @listing) do |text|
+              %span.listing-price-quantity
+                = text
           - if( @listing_presenter.youtube_link_ids.present?)
             - @listing_presenter.youtube_link_ids.each do |youtube_id|
               .listing-description-youtube-wrapper
@@ -135,7 +141,7 @@
         .col-12
           - custom_field_value.with_type do |question_type|
             = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
-            
+
 
 
 
