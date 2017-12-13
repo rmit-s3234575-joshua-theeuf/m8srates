@@ -76,9 +76,12 @@
         - if @listing.description && !@listing.description.blank?
           - text_with_line_breaks do
             = @listing.description
-          .listing-price
           -if @listing.category_id==2
-          =t(".Borrowing amount")
+          =t(".Willing to invest")
+          -else
+          =t(".Wants to borrow")
+          .listing-price
+
             %span.listing-price-amount
               = MoneyViewUtils.to_humanized(@listing.price)
             - with_quantity_text(@current_community, @listing) do |text|
