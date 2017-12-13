@@ -137,7 +137,7 @@
           -if question_type == DateField
             = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
           -else
-            = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => (custom_field_value*100) },t{'.%'}
+            = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => (custom_field_value*100) }
 
     .row-with-divider
       .col-12
