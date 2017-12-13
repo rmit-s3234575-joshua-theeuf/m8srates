@@ -9,19 +9,18 @@
     - if @listing_presenter.unit_options.empty?
       -# No-op
     - elsif @listing_presenter.unit_options.length == 1
+      - unit_option = @listing_presenter.unit_options.first
+      .quantity-description
+        = t(".per")
+        = unit_option[:display]
+      = hidden_field_tag("listing[unit]", unit_option[:value])
+    - else
       .quantity-description
         = t(".per")
       %select.js-listing-unit{name: "listing[unit]"}
         - @listing_presenter.unit_options.each do |unit_option|
           %option{value: unit_option[:value], selected: unit_option[:selected], data: { kind: unit_option[:kind] }}
             = unit_option[:display]
-
-    - else
-      - unit_option = @listing_presenter.unit_options.first
-      .quantity-description
-        = t(".per")
-        = unit_option[:display]
-      = hidden_field_tag("listing[unit]", unit_option[:value])
     %small
       - payment_fee_info_link = capture do
         %a.listing-payment-fee-info-link#payment_fee_info_link{href: '#'}
