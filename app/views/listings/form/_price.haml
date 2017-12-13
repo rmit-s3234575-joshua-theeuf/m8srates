@@ -3,7 +3,7 @@
   - if @listing_presenter.shape[:price_enabled] && @listing_presenter.category_id ==2
 
     = form.label :price, t(".How much would you like to Invest?")
-   = render partial: "listings/form/price_currency", locals: {form: form}
+    = render partial: "listings/form/price_currency", locals: {form: form}
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
   - if @listing_presenter.shape[:price_enabled] && @listing_presenter.category_id ==3
     = form.label :price, t(".How much would you like to borrow?")
