@@ -9,7 +9,21 @@
     = form.label :price, t(".How much would you like to borrow?")
     = render partial: "listings/form/price_currency", locals: {form: form}
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
-    - unit_option = @listing_presenter.unit_options.first
+    - if @listing_presenter.unit_options.empty?
+      -# No-op
+    - elsif @listing_presenter.unit_options.length == 1
+      - unit_option = @listing_presenter.unit_options.first
+      .quantity-description{style:"dispaly:none"}
+        = t(".per"){style:"display:none"}
+        = unit_option[:display]
+      = hidden_field_tag("listing[unit]", unit_option[:value])
+    - else
+      .quantity-description{style:"display:none"}
+        = t(".per"){style:"display:none"}
+      %select.js-listing-unit{name: "listing[unit]"}
+        - @listing_presenter.unit_options.each do |unit_option|
+          %option{value: unit_option[:value], selected: unit_option[:selected], data: { kind: unit_option[:kind] }}
+            = unit_option[:display]
     %small
       - payment_fee_info_link = capture do
         %a.listing-payment-fee-info-link#payment_fee_info_link{href: '#'}
