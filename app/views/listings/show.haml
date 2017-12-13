@@ -135,9 +135,10 @@
         .col-12
           - custom_field_value.with_type do |question_type|
           -if question_type == DateField
+            =t(".in here")
             = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
-          -else
-            = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => (custom_field_value*100) }
+
+
 
     .row-with-divider
       .col-12
