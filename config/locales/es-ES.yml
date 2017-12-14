@@ -322,7 +322,8 @@ es-ES:
           initiated_by: "Iniciada por"
           other_party: "Otra parte"
         status:
-          free: Conversación
+          conversation: Conversación
+          free: "Transacción gratuita"
           pending: Pendiente
           preauthorized: Pre-autorizada
           accepted: Aceptada
@@ -333,7 +334,7 @@ es-ES:
           initiated: "Esperando al pago de PayPal"
           pending_ext: "Esperando al pago de PayPal"
           none:
-            free: Conversación
+            free: "Transacción gratuita"
           paypal:
             free: Conversación
             pending: Pendiente
@@ -357,6 +358,17 @@ es-ES:
             initiated: "Esperando el pago de Stripe"
             pending_ext: "Esperando el pago de Stripe"
         not_available: "No disponible"
+      conversations:
+        conversations: "Ver conversaciones"
+        headers:
+          started_from: "Creada desde"
+          status: Status
+          started: Iniciada
+          last_activity: "Ultima Actividad"
+          initiated_by: Iniciador
+          other_party: "Otro usuario"
+        participants: "Conversación: %{starter} con %{author}"
+        profile: "Perfil de %{author}"
     custom_fields:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
@@ -1956,7 +1968,7 @@ es-ES:
     show:
       contact: "Contactar a %{person}"
       about_me: "Acerca de mí:"
-      add_description: "Comparte algo acerca ti"
+      add_description: "Comparte algo sobre ti"
       add_location: "Agregar ubicación"
       add_phone_number: "Agregar número de teléfono"
       address: "Ubicación:"

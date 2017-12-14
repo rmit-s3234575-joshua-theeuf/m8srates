@@ -58,11 +58,7 @@
     = form.password_field :password, :class => :text_field, :maxlength => "255", :id => "person_password1"
     = form.label :password2, t('.password_again')
     = form.password_field :password2, :class => :text_field, :maxlength => "255"
-    -# id verification
-    = form.label :photoID, t("Please upload valid photographic ID")
-    = file_field_tag 'photoID', accept: 'image/png,image/gif,image/jpeg'
-    = form.label :currentAddress, t("Please upload evidence of your current address")
-    = file_field_tag 'currentAddress', accept: 'image/png,image/gif,image/jpeg'
+
     -# Terms
     .outer-checkbox-container
       .checkbox-container
