@@ -11,12 +11,12 @@
     - elsif @listing_presenter.unit_options.length == 1
       - unit_option = @listing_presenter.unit_options.first
       .quantity-description
-        = t(".per")
+        = t(".for")
         = unit_option[:display]
       = hidden_field_tag("listing[unit]", unit_option[:value])
     - else
       .quantity-description
-        = t(".per")
+        = t(".for")
       %select.js-listing-unit{name: "listing[unit]"}
         - @listing_presenter.unit_options.each do |unit_option|
           %option{value: unit_option[:value], selected: unit_option[:selected], data: { kind: unit_option[:kind] }}
@@ -32,12 +32,12 @@
     - elsif @listing_presenter.unit_options.length == 1
       - unit_option = @listing_presenter.unit_options.first
       .quantity-description
-        = t(".per")
+        = t(".for")
         = unit_option[:display]
       = hidden_field_tag("listing[unit]", unit_option[:value])
     - else
       .quantity-description
-        = t(".per")
+        = t(".for")
       %select.js-listing-unit{name: "listing[unit]"}
         - @listing_presenter.unit_options.each do |unit_option|
           %option{value: unit_option[:value], selected: unit_option[:selected], data: { kind: unit_option[:kind] }}
