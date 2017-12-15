@@ -128,7 +128,7 @@
               = MoneyViewUtils.to_humanized(@listing.price)
             - with_quantity_text(@current_community, @listing) do |text|
               %span.listing-price-quantity
-                = text
+                = t.('per')
     - @listing.custom_field_values.each do |custom_field_value|
       .row
         .col-12
