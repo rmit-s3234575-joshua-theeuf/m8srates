@@ -542,7 +542,7 @@ en:
         selector_label_heading: "Selector label"
         label_placeholder: "eg. \"kg\", \"30 minutes\", \"person\", \"class\""
         selector_placeholder: "eg. \"Number of people\", \"Amount in kg\""
-        per: Per
+        per: for
         unit_type:
           heading: "Unit type"
           quantity_label: "Quantity (per piece, per kg, per person, per 2 hour tour...)"
@@ -1621,7 +1621,7 @@ en:
         location: Location
       price:
         price: Price
-        per: per
+        per: for
         per_day: "per day"
         mass: "piece, kg, l, m2, ..."
         time: "hour, day, month, ..."
@@ -1773,7 +1773,7 @@ en:
       processing_uploaded_image: "(Processing uploaded image...)"
       listing_created_at: "Listing created"
       price:
-        per_quantity_unit: "per %{quantity_unit}"
+        per_quantity_unit: "for %{quantity_unit}"
         per_day: "per day"
       delivery: "Delivery method"
       shipping: "Shipping (+%{price})"
