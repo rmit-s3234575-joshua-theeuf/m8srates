@@ -141,7 +141,7 @@ default: &default_settings
   # is saved
   # Examples: 'tmp/dev_fakepal.store'
   #           'tmp/test_fakepal.store'
-  fakepal_store:'tmp/dev_fakepal.store'
+  fakepal_store: 'tmp/dev_fakepal.store'
 
   # If you want to force all use to be SSL secured (https://) you can set this to true
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
