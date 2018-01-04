@@ -1620,7 +1620,7 @@ en:
       location:
         location: Location
       price:
-        price: Price
+        price: Borrow
         per: for
         per_day: "per day"
         mass: "piece, kg, l, m2, ..."
