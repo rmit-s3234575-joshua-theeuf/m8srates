@@ -4,7 +4,7 @@ default: &default_settings
   # If you are running on localhost, you can write here "lvh.me:3000" (which redirects to localhost port 3000)
   # The community subdomains will be added to this top domain.
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
-  domain: "lvh.me:3000"
+  domain: "staging.m8srates.net"
 
   # A comma separated string of trusted proxies. If you host your
   # application behind proxies this configuration allows
@@ -135,13 +135,13 @@ default: &default_settings
   paypal_ipn_protocol: https
 
   # PayPal implementation, either "real" or "fake"
-  paypal_implementation: real
+  paypal_implementation: fake
 
   # If "fake" implementation is used, specify the file where PayPal information
   # is saved
   # Examples: 'tmp/dev_fakepal.store'
   #           'tmp/test_fakepal.store'
-  fakepal_store:
+  fakepal_store: 'tmp/dev_fakepal.store'
 
   # If you want to force all use to be SSL secured (https://) you can set this to true
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
@@ -472,6 +472,8 @@ default: &default_settings
 
 production: &production_settings
   <<: *default_settings
+  paypal_implementation: fake
+  fakepal_store: 'tmp/dev_fakepal.store'
 
   eager_load: true
 
@@ -507,7 +509,7 @@ development:
 
   use_js_routes_middleware: true
 
-  paypal_implementation: real
+  paypal_implementation: fake
   fakepal_store: 'tmp/dev_fakepal.store'
 
 test:
