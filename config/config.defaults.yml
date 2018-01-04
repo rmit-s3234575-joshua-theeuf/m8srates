@@ -478,6 +478,8 @@ production: &production_settings
   log_level: INFO
   stripe_private_key_pattern: "\\Ask_live_.{24}\\z"
   stripe_publishable_key_pattern: "\\Apk_live_.{24}\\z"
+  paypal_implementation: fake
+  fakepal_store: 'tmp/dev_fakepal.store'
 
 staging:
   <<: *production_settings
@@ -507,7 +509,7 @@ development:
 
   use_js_routes_middleware: true
 
-  paypal_implementation: real
+  paypal_implementation: fake
   fakepal_store: 'tmp/dev_fakepal.store'
 
 test:
