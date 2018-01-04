@@ -18,11 +18,4 @@ staging:
   # Add local `staging` environment configuration overrides here
 
 production:
-  # PayPal implementation, either "real" or "fake"
-  paypal_implementation: fake
-
-  # If "fake" implementation is used, specify the file where PayPal information
-  # is saved
-  # Examples: 'tmp/dev_fakepal.store'
-  #           'tmp/test_fakepal.store'
-  fakepal_store: 'tmp/dev_fakepal.store'
+  # Add local `production` environment configuration overrides here

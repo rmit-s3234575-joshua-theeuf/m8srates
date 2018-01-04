@@ -78,8 +78,14 @@ CREATE TABLE `bookings` (
   `end_on` date DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `start_time` datetime DEFAULT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `per_hour` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `index_bookings_on_transaction_id` (`transaction_id`) USING BTREE
+  KEY `index_bookings_on_transaction_id` (`transaction_id`) USING BTREE,
+  KEY `index_bookings_on_per_hour` (`per_hour`),
+  KEY `index_bookings_on_start_time` (`start_time`),
+  KEY `index_bookings_on_end_time` (`end_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `categories`;
@@ -260,6 +266,7 @@ CREATE TABLE `communities` (
   `small_cover_photo_processing` tinyint(1) DEFAULT NULL,
   `favicon_processing` tinyint(1) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT NULL,
+  `automatic_confirmation_after_days_after_end_time` int(11) DEFAULT '2',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -978,6 +985,7 @@ CREATE TABLE `payment_settings` (
   `api_verified` tinyint(1) DEFAULT NULL,
   `api_visible_private_key` varchar(255) DEFAULT NULL,
   `api_country` varchar(255) DEFAULT NULL,
+  `confirmation_after_days_after_end_time` int(11) DEFAULT '2',
   PRIMARY KEY (`id`),
   KEY `index_payment_settings_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2227,9 +2235,12 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20170801125553'),
 ('20170814125622'),
 ('20170817035830'),
-('20171107063241'),
-('20171128122539'),
 ('20171023070523'),
-('20171129152027');
+('20171107063241'),
+('20171117062422'),
+('20171128122539'),
+('20171129152027'),
+('20171207073027'),
+('20171207075640');
 
 
