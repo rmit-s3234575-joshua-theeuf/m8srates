@@ -352,7 +352,8 @@ default: &default_settings
 
   # Default Google Maps API key for communities that don't specify one
   # Default is not to use Google Maps API key
-  google_maps_key: AIzaSyBVfve8GMS2a1NgwaS4huHHv4qkBAspmLk
+  google_maps_key: AIzaSyC95fnM8GeZfMXQpoq6zVXRr_woD7zakIg
+
 
   # Path or URL for landing page assets.
   #
