@@ -544,7 +544,7 @@ en:
         selector_label_heading: "Selector label"
         label_placeholder: "eg. \"kg\", \"30 minutes\", \"person\", \"class\""
         selector_placeholder: "eg. \"Number of people\", \"Amount in kg\""
-        per: Per
+        per: for
         unit_type:
           heading: "Unit type"
           quantity_label: "Quantity (per piece, per kg, per person, per 2 hour tour...)"
