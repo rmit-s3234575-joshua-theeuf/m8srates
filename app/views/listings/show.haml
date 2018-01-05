@@ -135,6 +135,11 @@
             - with_quantity_text(@current_community, @listing) do |text|
               %span.listing-price-quantity
                 = text
+    - @listing.custom_field_values.each do |custom_field_value|
+      .row
+        .col-12
+          - custom_field_value.with_type do |question_type|
+            = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
 
     .row-with-divider
       .col-12
