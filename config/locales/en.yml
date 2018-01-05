@@ -999,7 +999,7 @@ en:
       price_per_unit_type: "Price per %{unit_type}"
       quantity: "Quantity:"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
-      listing_per_unit_title: "%{title}, per %{unit_type}"
+      listing_per_unit_title: "%{title}, for %{unit_type}"
     payment_receipt_to_seller:
       payment_gateway_fee: "Payment processing fee:"
       shipping_total: "Shipping:"
@@ -1008,14 +1008,14 @@ en:
       service_fee: "%{service_name} service fee:"
       you_will_get: "Total:"
       new_payment: "You have received a new payment"
-      price_per_unit_type: "Price per %{unit_type}"
+      price_per_unit_type: "Price for %{unit_type}"
       quantity: "Quantity:"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
     payment_receipt_to_payer:
       receipt_of_payment: "Receipt of payment"
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
       product: Product
-      price_per_unit_type: "Price per %{unit_type}"
+      price_per_unit_type: "Price for %{unit_type}"
       duration: Duration
       quantity: Quantity
       subtotal: Subtotal
@@ -1782,7 +1782,7 @@ en:
       processing_uploaded_image: "(Processing uploaded image...)"
       listing_created_at: "Listing created"
       price:
-        per_quantity_unit: "per %{quantity_unit}"
+        per_quantity_unit: "for %{quantity_unit}"
         per_day: "per day"
       delivery: "Delivery method"
       shipping: "Shipping (+%{price})"
