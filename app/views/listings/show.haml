@@ -122,9 +122,9 @@
   %aside.col-4
     <h3>
     -if @listing.category_id == 3
-      Borrowers
+      Borrower
     -if @listing.category_id ==2
-      Investors
+      Investor
     </h3>
     - if @listing.price
       .row
@@ -139,7 +139,7 @@
       .row
         .col-12
           - custom_field_value.with_type do |question_type|
-            = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
+            = render :locals => { :custom_field_value => custom_field_value }
 
     .row-with-divider
       .col-12
