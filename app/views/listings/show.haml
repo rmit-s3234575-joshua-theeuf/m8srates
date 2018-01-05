@@ -121,7 +121,10 @@
 
   %aside.col-4
     <h3>
-    -@lisitng.category_name
+    -if @listing.category_id == 3
+      Borrowers
+    -if @listing.catergory_id ==2
+      Investors
     </h3>
     - if @listing.price
       .row
