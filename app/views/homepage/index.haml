@@ -26,11 +26,7 @@
           %a.inline-big-button{href: sign_up_path}
             .content
               = t("layouts.application.connect")
-        - else
-          - if(main_search == :location)
-            = render partial: "location_bar"
-          - else
-            = render partial: "search_bar"
+
   - elsif !(is_homepage && FeatureFlagHelper.feature_enabled?(:topbar_v1))
     .browse-view-search-form
       - if(main_search == :location)
