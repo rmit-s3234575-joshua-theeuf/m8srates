@@ -1,5 +1,5 @@
 .googlemap
-  .jsmap.listing-map{:id => "map_canvas"}
+  .jsmap.listing-map{:id => "map_canvas", :style=>"display:none"}
   - content_for :extra_javascript do
     :javascript
       $(document).ready(function() {
