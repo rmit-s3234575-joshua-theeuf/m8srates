@@ -9,7 +9,7 @@
   = form_for contact_form, :url => create_contact do |form|
 
     = form.label :content, t("conversations.new.message")
-    = form.text_area :content, :class => "text_area"
+    = form.text_area :content, :class => "text_area", :disabled=>"disabled"
     = form.hidden_field :sender_id, :value => @current_user.id
 
     = form.hidden_field :listing_id, :value => @listing.id
