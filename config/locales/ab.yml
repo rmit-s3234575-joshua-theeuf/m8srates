@@ -212,7 +212,6 @@ ab:
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
-        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -433,6 +432,11 @@ ab:
         any_language: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
@@ -2186,7 +2190,7 @@ ab:
       short: ~
       shorter: ~
       short_date: ~
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: ~
     days_ago: ~

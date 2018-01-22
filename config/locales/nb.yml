@@ -227,7 +227,6 @@ nb:
         update_settings: "Lagre innstillinger"
         automatically_confirmed_no_escrow: "Transaksjoner vil automatisk bli satt som utført %{days_dropdown} dager etter at betaling er utført"
         automatically_confirmed_no_escrow_stripe_info: ~
-        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Send automatisk nyhetsbrev:%{frequency_dropdown}"
         newsletter_daily: Daglig
         newsletter_weekly: Ukentlig
@@ -448,6 +447,11 @@ nb:
         any_language: "Alle språk"
         message_will_be_sent_only_to_people_with_this_language: "Ps: e-posten sendes kun til brukere av %{service_name} i det språket du har valgt."
         email_sent: "Epost sendt."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Generelt
       users_and_transactions: "Brukere og transaksjoner"
@@ -2224,7 +2228,7 @@ nb:
       short: "%e %b %Y klokken %H:%M"
       shorter: "%e %b klokken %H:%M"
       short_date: "%e %b %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} dag siden"
     days_ago: "%{count} dager siden"

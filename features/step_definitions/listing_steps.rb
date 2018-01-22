@@ -25,6 +25,10 @@ Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)(?: per (.*?))?$/ do 
   @listing.update_attribute(:unit_type, unit_type) unless unit_type.nil?
 end
 
+Given(/^that listing is free$/) do
+  @listing.update_attribute(:price, nil)
+end
+
 Given /^that listing is closed$/ do
   @listing.update_attribute(:open, false)
 end
@@ -204,7 +208,7 @@ Then(/^I should see working hours save button finished$/) do
 end
 
 Given(/^that listing availability is booking$/) do
-  @listing.update_attribute(:availability, :booking)
+  @listing.update_attributes(availability: :booking, quantity_selector: 'number')
 end
 
 Given(/^that listing has default working hours$/) do
