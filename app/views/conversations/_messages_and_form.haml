@@ -3,13 +3,10 @@
     initialize_reply_form('#{I18n.locale}');
 
   #reply_form.message-avatar-padding.message-reply-form
+  -if :participant.is_starter
     = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t("conversations.show.write_a_reply")
-      -if @Messages.is_starter && @messages.count.where(:conversation_id) == 1
-        = f.text_area :content, :class => "reply_form_text_area", :readonly=>true, :value=>"Money has been sent"
-      -if @Messages.is_starter == 0 && @messages.count.where(:conversation_id)==2
-        = f.text_area :content, :class => "reply_form_text_area", :readonly=>true, :value=>"Money has been recieved"
-      = f.text_area :content, :class => "reply_form_text_area", :readonly=>true, :value=>"Waiting for a response", :disabled=>true
+      = f.text_area :content, :class => "reply_form_text_area"
       = f.hidden_field :conversation_id
       = f.button t("conversations.show.send_reply")
 
