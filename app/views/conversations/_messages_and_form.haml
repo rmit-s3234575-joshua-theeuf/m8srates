@@ -6,10 +6,10 @@
     = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t("conversations.show.write_a_reply")
       -if @participant.is_starter && @messages.count.where(:conversation_id) == 2
-        = f.text_area :content, :class => "reply_form_text_area", :readonly=>"readonly", :value=>"Money has been sent"
+        = f.text_area :content, :class => "reply_form_text_area", :readonly=>true, :value=>"Money has been sent"
       -if @participants.is_starter == 0 && @messages.count.where(:conversation_id)==3
-        = f.text_area :content, :class => "reply_form_text_area", :readonly=>"readonly", :value=>"Money has been recieved"
-      = f.text_area :content, :class => "reply_form_text_area", :readonly=>"readonly", :value=>"Waiting for a response", :disabled
+        = f.text_area :content, :class => "reply_form_text_area", :readonly=>true, :value=>"Money has been recieved"
+      = f.text_area :content, :class => "reply_form_text_area", :readonly=>true, :value=>"Waiting for a response", :disabled=>true
       = f.hidden_field :conversation_id
       = f.button t("conversations.show.send_reply")
 
