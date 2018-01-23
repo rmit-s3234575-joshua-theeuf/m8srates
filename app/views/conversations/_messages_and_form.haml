@@ -1,8 +1,8 @@
 - if role == :participant
   - content_for :javascript do
     initialize_reply_form('#{I18n.locale}');
-  = render :partial => "conversations/message_requests", :collection => messages, as: :message_or_action
-    -message_or_action[:sender][:id]
+  - text_with_line_breaks do
+    = collection[:content]
   #reply_form.message-avatar-padding.message-reply-form
   -if messages.count == 1
     = form_for message_form, :url => message_form_action do |f|
