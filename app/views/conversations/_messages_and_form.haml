@@ -8,13 +8,13 @@
       = f.label :content, t("conversations.show.write_a_reply")
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Money sent", :readonly=> true
       = f.hidden_field :conversation_id
-      = f.button t("conversations.show.send_reply")
+      = f.submit t("conversations.show.send_reply")
   -if messages.count == 2
     = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t("conversations.show.write_a_reply")
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Money Recieved", :readonly=> true
       = f.hidden_field :conversation_id
-      = f.button t("conversations.show.send_reply")
+      = f.submit t("conversations.show.send_reply")
 
 
 %messages
