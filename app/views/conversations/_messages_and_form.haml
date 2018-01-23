@@ -9,7 +9,7 @@
       = f.text_area :content, :class => "reply_form_text_area", :value=>"counted messages"
       = f.hidden_field :conversation_id
       = f.button t("conversations.show.send_reply")
-  -end
+    
 
 messages
   = render :partial => "conversations/message", :collection => messages, as: :message_or_action
