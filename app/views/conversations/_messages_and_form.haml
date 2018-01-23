@@ -6,7 +6,7 @@
   -if messages.count == 1
     = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t("conversations.show.write_a_reply")
-      = f.label messages.last.sender_id
+      = f.label messages.last[:id]
       =f.label  @current_user.id
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Money sent", :readonly=> true
       = f.hidden_field :conversation_id
@@ -14,7 +14,7 @@
   -elsif messages.count == 2
     = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t("conversations.show.write_a_reply")
-      = f.label messages.last.sender_id
+      = f.label messages.last[:id]
       =f.label  @current_user.id
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Money Recieved", :readonly=> true
       = f.hidden_field :conversation_id
