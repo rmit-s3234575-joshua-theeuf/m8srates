@@ -48,8 +48,8 @@ class MessagesController < ApplicationController
   def is_participant?(person, conversation_id)
     Conversation.find(conversation_id).participant?(person)
   end
-  def is_starter?(person,conversastion_id)
-    Participation.find(converstation_id).participant(person).is_starter?
+  def countMessages(person,conversastion_id)
+    Conversation.find(converstation_id).count
   end
 
 end
