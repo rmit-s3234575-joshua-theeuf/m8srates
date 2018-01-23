@@ -14,10 +14,6 @@
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Money Recieved", :readonly=> true
       = f.hidden_field :conversation_id
       = f.button t("conversations.show.send_reply")
-  -elsif @current_user.id ==  messages.last[:sender][:id]
-    .row.message-row
-      Please wait for a response from the other party. 
-
 
 %messages
   = render :partial => "conversations/message", :collection => messages, as: :message_or_action
