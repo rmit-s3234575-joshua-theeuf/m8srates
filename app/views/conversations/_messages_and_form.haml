@@ -1,9 +1,8 @@
 - if role == :participant
   - content_for :javascript do
     initialize_reply_form('#{I18n.locale}');
-  -  :messageLast = messages.last
   #reply_form.message-avatar-padding.message-reply-form
-  -if messages.count == 1 && @current_user.id ==  message[:sender][:id]
+  -if messages.count == 1 && @current_user.id ==  messages.last[:sender][:id]
     = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t("conversations.show.write_a_reply")
       = f.label messages.last[:sender][:id]
