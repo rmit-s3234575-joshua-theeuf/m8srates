@@ -3,7 +3,7 @@
     initialize_reply_form('#{I18n.locale}');
 
   #reply_form.message-avatar-padding.message-reply-form
-  -if messages.count == 1 
+  -if messages.count == 1 && messages.last[:sender] != @current_user
     = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t("conversations.show.write_a_reply")
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Money sent", :readonly=> true
