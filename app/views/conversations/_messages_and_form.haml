@@ -3,14 +3,14 @@
     initialize_reply_form('#{I18n.locale}');
   = render :partial => "conversations/message_requests", :collection => messages, as: :message_or_action
   #reply_form.message-avatar-padding.message-reply-form
-  -if messages.count == 1 && message_or_action[:sender][:id]!=@current_user.id
+  -if messages.count == 1 && @message_or_action[:sender][:id]!=@current_user.id
     = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t("conversations.show.write_a_reply")
       =f.label  @current_user.id
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Money sent", :readonly=> true
       = f.hidden_field :conversation_id
       = f.button t("conversations.show.send_reply")
-  -elsif messages.count == 2  && message_or_action[:sender][:id]!=@current_user.id
+  -elsif messages.count == 2  && @message_or_action[:sender][:id]!=@current_user.id
     = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t("conversations.show.write_a_reply")
       =f.label  @current_user.id
