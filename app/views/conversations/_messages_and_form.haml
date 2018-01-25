@@ -2,35 +2,16 @@
   - content_for :javascript do
     initialize_reply_form('#{I18n.locale}');
   #reply_form.message-avatar-padding.message-reply-form
+
+    = form_for message_form, :url => message_form_action do |f|
+      = f.label :content, t("conversations.show.write_a_reply")
   -if messages.count == 1 && @current_user.id..to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
-    = form_for message_form, :url => message_form_action do |f|
-      = f.label :content, t("conversations.show.write_a_reply")
-      = f.label messages.first[:sender][:id].to_s.downcase
-      = f.label @current_user.id.to_s.downcase
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Money sent", :readonly=> true
-      = f.hidden_field :conversation_id
-      = f.button t("conversations.show.send_reply")
   -elsif messages.count == 2 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
-    = form_for message_form, :url => message_form_action do |f|
-      = f.label :content, t("conversations.show.write_a_reply")
-      = f.label messages.first[:sender][:id].to_s.downcase
-      = f.label @current_user.id.to_s.downcase
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Money Recieved", :readonly=> true
-      = f.hidden_field :conversation_id
-      = f.button t("conversations.show.send_reply")
   -elsif messages.count == 4 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
-    = form_for message_form, :url => message_form_action do |f|
-      = f.label :content, t("conversations.show.write_a_reply")
-      = f.label messages.first[:sender][:id].to_s.downcase
-      = f.label @current_user.id.to_s.downcase
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Loan repayed", :readonly=> true
-      = f.hidden_field :conversation_id
-      = f.button t("conversations.show.send_reply")
   -elsif messages.count == 5 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
-    = form_for message_form, :url => message_form_action do |f|
-      = f.label :content, t("conversations.show.write_a_reply")
-      = f.label messages.first[:sender][:id].to_s.downcase
-      = f.label @current_user.id.to_s.downcase
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Transaction Closed", :readonly=> true
       = f.hidden_field :conversation_id
       = f.button t("conversations.show.send_reply")
