@@ -5,13 +5,13 @@
 
     = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t("conversations.show.write_a_reply")
-  -if messages.count == 1 && @current_user.id..to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
+    -if messages.count == 1 && @current_user.id..to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Money sent", :readonly=> true
-  -elsif messages.count == 2 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
+    -elsif messages.count == 2 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Money Recieved", :readonly=> true
-  -elsif messages.count == 4 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
+    -elsif messages.count == 4 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Loan repayed", :readonly=> true
-  -elsif messages.count == 5 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
+    -elsif messages.count == 5 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Transaction Closed", :readonly=> true
       = f.hidden_field :conversation_id
       = f.button t("conversations.show.send_reply")
