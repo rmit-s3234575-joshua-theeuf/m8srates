@@ -2340,7 +2340,7 @@ en:
     topbar:
       menu: Menu
       more: More
-      search_placeholder: Search...
+      search_placeholder: "Search for a User by Name"
       search_location_placeholder: Location
       user: User
       inbox: Inbox
