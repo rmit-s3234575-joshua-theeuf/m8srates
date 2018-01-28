@@ -1,4 +1,6 @@
 en:
+  Request a loan:
+  Offer a loan:
   number:
     currency:
       format:
@@ -1271,6 +1273,8 @@ en:
       are: are
       what_do_you_need: "What are you looking for?"
       post_new_listing: "Post a new Offering"
+      request_a_loan: "Request a loan"
+      offer_a_loan: "Offer a loan"
       are_offering: offer
       add_news_item: "Add an article"
       lend_rent_help_carpool: "Sell, lend, help, share rides"
