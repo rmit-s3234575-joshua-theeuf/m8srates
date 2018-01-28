@@ -50,9 +50,4 @@
     -# About text
     = form.label :description, t("settings.profile.about_you"), :class => "input"
     = form.text_area :description, :class => "update_profile_description_text_area"
-    = form.fields_for :location do |loc|
-      = loc.hidden_field :address, :value => target_user.location.address
-      = loc.hidden_field :google_address, :value => target_user.location.google_address
-      = loc.hidden_field :latitude, :value => target_user.location.latitude
-      = loc.hidden_field :longitude, :value => target_user.location.longitude
     = form.button t("settings.save_information"), :class => "send_button"
