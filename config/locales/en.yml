@@ -1674,6 +1674,8 @@ en:
         tags: Tags
       title:
         listing_title: "Listing title"
+        borrow: "I want to Borrow"
+        invest: "I want to Invest"
       valid_until:
         valid_until: "Expiration date"
       valid_until_radio_buttons:

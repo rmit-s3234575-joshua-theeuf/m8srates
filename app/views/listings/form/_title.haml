@@ -1,9 +1,7 @@
 -if @listing_presenter.category_id == 5
   = form.label :title, t(".listing_title") + "*", :class => "input"
-  = @current_user.name
-  = form.text_field(:title, :class => "title_text_field", :maxlength => "60", :value => "I want to Invest" , :readonly=>true)
+  = form.text_field(:title, :class => "title_text_field", :maxlength => "60", :value => t(".invest") , :readonly=>true)
 
 -if @listing_presenter.category_id == 3
   = form.label :title, t(".listing_title") + "*", :class => "input"
-  = @current_user.name
-  = form.text_field(:title, :class => "title_text_field", :maxlength => "60", :value => "I want to Borrow"  , :readonly=>true)
+  = form.text_field(:title, :class => "title_text_field", :maxlength => "60", :value => t(".borrow")  , :readonly=>true)
