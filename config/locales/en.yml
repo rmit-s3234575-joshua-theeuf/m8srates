@@ -1674,8 +1674,8 @@ en:
         tags: Tags
       title:
         listing_title: "Listing title"
-        borrow: "I want to Borrow - %{given_name}"
-        invest: "I want to Invest - %{given_name}"
+        borrow: "I want to Borrow - %{person_name}"
+        invest: "I want to Invest - %{person_name}"
       valid_until:
         valid_until: "Expiration date"
       valid_until_radio_buttons:
