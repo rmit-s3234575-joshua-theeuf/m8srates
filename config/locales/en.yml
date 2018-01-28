@@ -1262,14 +1262,15 @@ en:
     index:
       no_listings_with_your_search_criteria: "Sorry, no listings could be found for your search criteria. Maybe try other search terms?"
       no_listings_notification: "No listings. %{add_listing_link}."
-      add_listing_link_text: "Add new listing"
+      add_listing_link_text_borrow: "Request a loan"
+      add_listing_link_text_invest: "Offer a loan"
       open_listing: "open listing"
       open_listings: "open listings"
       private_listing_notification_log_in: "log in"
       is: is
       are: are
       what_do_you_need: "What are you looking for?"
-      post_new_listing: "Post a new listing"
+      post_new_listing: "Post a new Offering"
       are_offering: offer
       add_news_item: "Add an article"
       lend_rent_help_carpool: "Sell, lend, help, share rides"
