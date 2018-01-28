@@ -3,5 +3,6 @@
 -if custom_field.type =="NumericField" && @listing_presenter.category_id==5
   = render partial: "layouts/info_text", locals: { text: t("listings.form.description.interest_info_investor") }
   = text_field_tag "custom_fields[#{custom_field.id}]", value, :data => {:min => custom_field.display_min, :max => custom_field.display_max}, :class => "#{custom_field.required? ? 'required' : ''} #{custom_field.allow_decimals? ? 'number-decimals' : 'number-no-decimals'}"
--else
+-elsif  custom_field.type =="NumericField" && @listing_presenter.category_id==3
+= render partial: "layouts/info_text", locals: { text: t("listings.form.description.interest_info_borrower") }  
   = text_field_tag "custom_fields[#{custom_field.id}]", value, :data => {:min => custom_field.display_min, :max => custom_field.display_max}, :class => "#{custom_field.required? ? 'required' : ''} #{custom_field.allow_decimals? ? 'number-decimals' : 'number-no-decimals'}"

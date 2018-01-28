@@ -1593,6 +1593,7 @@ en:
         detailed_description: "Detailed description"
         youtube_info: "If your description contains YouTube links, the videos will be shown below the description."
         interest_info_investor: "The interest in which you set is the interest to be paid at the due date. This interest is simple interest, which means if you charge 10% interest on $100, they will repay $110."
+        interest_info_borrower: "This is the maximum amount of interest you are willing to pay on a given loan. This interest will be simple, which means if you say you cana pay 10% on $100, you will repay $110 to the investor"
       destination:
         destination: Destination
       form_content:
