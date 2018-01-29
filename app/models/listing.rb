@@ -147,7 +147,7 @@ class Listing < ApplicationRecord
   validates_presence_of :category
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => proc{ DateTime.now..DateTime.now + 7.months }
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
-  validates_inclusion_of :dueDate, :allow_nill => :false, :in => proc{DateTime.now..DateTime.now + 12.months}
+  validates_inclusion_of :duedate, :allow_nill => :false, :in => proc{DateTime.now..DateTime.now + 12.months}
   validates_numericality_of :interest, :only_integer =>true, :less_than_or_equal_to => 100, :greater_than_or_equal_to=>0, :message => "Interest must be between 0% and 100%", :allow_nil=>false
 
   def self.currently_open(status="open")
