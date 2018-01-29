@@ -67,6 +67,6 @@
         - else
           = t("transactions.total")
         -interestRate = (1.0+((listing[:interest])/100))
-        - totalPrice = (listing[:price_cents]/(100.0 - listing[:interest]))+listing[:price_cents]
+        - totalPrice = (listing[:price_cents]*(1.0 + ((listing[:interest].to_f)/100))
         =totalPrice
         = MoneyViewUtils.to_humanized(is_author ? seller_gets : total)
