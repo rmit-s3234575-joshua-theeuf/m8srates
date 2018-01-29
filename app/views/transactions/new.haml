@@ -37,7 +37,7 @@
         .col-12
           = label_tag("message_accept","I accept the loan conditions", {class:"inline"})
           = radio_button_tag(:message, "accept", false, {class: "radio-inline"})
-          = label_tag("message_reject","I cannot accept this loan conditions")
+          = label_tag("message_reject","I cannot accept this loan conditions", {class:"radio-inline"})
           = radio_button_tag(:message, "reject", false, {class: "radio-inline"})
       - if quantity
         = hidden_field_tag(:quantity, quantity)
