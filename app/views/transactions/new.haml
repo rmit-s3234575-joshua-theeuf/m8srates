@@ -35,9 +35,10 @@
         = t("conversations.new.send_message_to_user", person: author_link).html_safe
       .row
         .col-12
-          = label_tag(:message,"I accept the loan conditions", {class:"radio-inline"}) radio_button_tag(:message, "accept", false, class: "radio-inline")
-          = label_tag(:message,"I cannot accept these loan conditions",{class:"radio-inline"})
-          = radio_button_tag(:message, "reject", false, class: "radio-inline")
+          = label_tag(:message,"I accept the loan conditions", {class:"inline"})
+          = radio_button_tag(:message, "accept", false, {class: "radio-inline"})
+          = label_tag(:message,"I cannot accept these loan conditions",{class:"inline"})
+          = radio_button_tag(:message, "reject", false, {class: "radio-inline"})
       - if quantity
         = hidden_field_tag(:quantity, quantity)
 
