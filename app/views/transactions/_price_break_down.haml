@@ -63,7 +63,7 @@
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
         - if total_label.present?
-          = (total_label.to_i)*(((listing[:interest].to_i)/100)+1)
+          = total_label
         - else
           = t("transactions.total")
         -total = listing[:price].to_i*(1+(listing[:interest]/100))
