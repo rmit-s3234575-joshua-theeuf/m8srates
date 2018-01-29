@@ -1,10 +1,10 @@
 .inline-label-container
 -if @listing_presenter.category_id==5
   = form.label :duedate, "Due date" + "*", :class => "inline"
-  = render partial: "layouts/info_text", locals: { text: t("common.Investor") }
+  = render partial: "layouts/info_text", locals: { text: t("common.investor") }
 
 -else
   = form.label :duedate, "I can repay on" + "*", :class => "inline"
-  = render partial: "layouts/info_text", locals: { text: t("common.Borrower") }
+  = render partial: "layouts/info_text", locals: { text: t("common.borrower") }
 .valid-until-dropdown
   = date_select(:listing, :duedate, {:start_year => Time.now.year, :end_year => Time.now.year + 1, :default => 3.months.from_now}, :class => "listing_date_select")
