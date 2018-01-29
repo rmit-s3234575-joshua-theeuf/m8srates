@@ -4,7 +4,7 @@
 
       %h2
         = link_to_unless listing[:deleted], listing[:title], listing_path(id: listing[:id])
-        listing.to_json
+        -@listing.to_json
       - if price_break_down_locals.present?
         = render partial: "transactions/price_break_down", locals: price_break_down_locals.merge(is_author: is_author)
 
