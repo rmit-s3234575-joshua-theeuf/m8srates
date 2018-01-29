@@ -6,7 +6,7 @@
   = render :partial => "listings/form/shipping", :locals => { :form => form }
   = render :partial => "listings/form/description", :locals => { :form => form }
   = render :partial => "listings/form/custom_fields", :locals => { :form => form }
--if @listing_presenter.catgeory_id == 5
+-if @listing_presenter.category_id == 5
   = render :partial => "listings/form/duedate", :locals => { :form => form }
 -else
   = render :partial => "listings/form/repayment", :locals => { :form => form }
