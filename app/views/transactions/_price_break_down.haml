@@ -90,7 +90,8 @@
           = t("transactions.total")
       %span.initiate-transaction-total-value
         = MoneyViewUtils.to_humanized(is_author ? seller_gets : total)
-  - if @custom_field_questions.present?
+
+- if @custom_field_questions.present?
   .new_listing_form_field_container
     - @custom_field_questions.each do |custom_field|
       - custom_field.with_type do |field_type|
