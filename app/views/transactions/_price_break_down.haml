@@ -66,6 +66,6 @@
           = total_label
         - else
           = t("transactions.total")
-        -total = (listing[:price].to_i)+1
-        =listing.attributes
+        -total = ((listing[:price_cents].to_i)/100)*(1+((listing[:interest]/100)))
+        =total
         = MoneyViewUtils.to_humanized(is_author ? seller_gets : total)
