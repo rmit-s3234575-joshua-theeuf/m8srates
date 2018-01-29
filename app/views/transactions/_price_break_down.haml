@@ -84,7 +84,9 @@
   - if total.present?
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
-        =@custom_field_value.first
+        =@lisitng_presenter.attributes
+        =@custom_field.attributes
+        =@current_user.attributes
 
         - if total_label.present?
           = total_label
