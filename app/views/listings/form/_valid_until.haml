@@ -1,4 +1,4 @@
-- unless @current_community.hide_expiration_date
+- unless @current_community
   .inline-label-container
     = form.label :valid_until, t('.valid_until') + "*", :class => "inline"
     %a.label-info#help_valid_until_link{tabindex: "-1"}
