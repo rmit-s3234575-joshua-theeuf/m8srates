@@ -22,6 +22,7 @@
 
       - m_price_break_down.each do |price_break_down|
         %li
+          =m_price_break_down.to_json
           = render partial: "transactions/price_break_down", locals: price_break_down.merge(is_author: false)
 
   = form_tag(form_action, method: :post, id: "transaction-form") do
