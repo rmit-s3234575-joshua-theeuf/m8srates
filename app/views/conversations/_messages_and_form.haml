@@ -2,9 +2,8 @@
   - content_for :javascript do
     initialize_reply_form('#{I18n.locale}');
   #reply_form.message-avatar-padding.message-reply-form
-  -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:sender][:content] !="I cannot accept these loan conditions"
+  -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] !="I cannot accept these loan conditions"
     = form_for message_form, :url => message_form_action do |a|
-      = messages.first.to_json
       = a.label :content, t("conversations.show.write_a_reply")
       = a.text_area :content, :class => "reply_form_text_area", :value=>"Money sent", :readonly=> true
       = a.hidden_field :conversation_id
