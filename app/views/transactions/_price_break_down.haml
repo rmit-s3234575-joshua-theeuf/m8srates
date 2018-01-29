@@ -68,5 +68,5 @@
           = t("transactions.total")
         -interestRate = (1.0+((listing[:interest])/100))
         - totalPrice = (listing[:price_cents]-(listing[:price_cents]*((100.0 - listing[:interest])/100.0)))+listing[:price_cents]
-        = render partial: "listings/form/price_currency", locals: {form: form}
+        = "$ "
         = (totalPrice/100).to_i
