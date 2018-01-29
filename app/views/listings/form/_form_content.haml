@@ -6,7 +6,10 @@
   = render :partial => "listings/form/shipping", :locals => { :form => form }
   = render :partial => "listings/form/description", :locals => { :form => form }
   = render :partial => "listings/form/custom_fields", :locals => { :form => form }
+-if @listing_presenter.catgeory_id == 5
   = render :partial => "listings/form/duedate", :locals => { :form => form }
+-else
+  = render :partial => "listings/form/repayment", :locals => { :form => form }
   = render :partial => "listings/form/origin", :locals => { :form => form, :style=>"display:none" }
   = render :partial => "listings/form/images", :locals => { :form => form, :run_js_immediately => run_js_immediately }
   = render :partial => "listings/form/send_button", :locals => { :form => form }

@@ -1,0 +1,6 @@
+.inline-label-container
+  = form.label :duedate, "I can repay on" + "*", :class => "inline"
+  %a.label-info#help_valid_until_link{tabindex: "-1"}
+    = t('common.what_is_this')
+.valid-until-dropdown
+  = date_select(:listing, :duedate, {:start_year => Time.now.year, :end_year => Time.now.year + 1, :default => 3.months.from_now}, :class => "listing_date_select")
