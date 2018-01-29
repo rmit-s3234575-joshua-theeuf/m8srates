@@ -86,6 +86,7 @@
       %span.initiate-transaction-total-label
         - if total_label.present?
           = total_label
+          =listing.attributes
         - else
           = t("transactions.total")
       %span.initiate-transaction-total-value
