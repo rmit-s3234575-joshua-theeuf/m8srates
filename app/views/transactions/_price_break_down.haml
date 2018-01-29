@@ -84,7 +84,7 @@
   - if total.present?
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
-        =@custom_field_value.find_by_id(1)
+        =@custom_field_value.first
 
         - if total_label.present?
           = total_label
