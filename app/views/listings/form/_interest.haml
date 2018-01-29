@@ -1,5 +1,5 @@
 .price-container
--if @listing_presnter.category_id ==5
+-if @listing_presenter.category_id==5
   = form.label :interest, "Interest (%)"
   = render partial: "layouts/info_text", locals: { text: t("common.interest_investor") }
   = form.text_field :interest, :class => "price-field", :maxlength => "3", :placeholder => "0"
