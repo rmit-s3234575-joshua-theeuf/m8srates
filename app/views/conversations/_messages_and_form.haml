@@ -4,33 +4,26 @@
   #reply_form.message-avatar-padding.message-reply-form
   -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:sender][:content] !="I cannot accept these loan conditions"
     = form_for message_form, :url => message_form_action do |a|
+      = messages.first.to_json
       = a.label :content, t("conversations.show.write_a_reply")
-      = a.label messages.first[:sender][:id].to_s.downcase
-      = a.label @current_user.id.to_s.downcase
       = a.text_area :content, :class => "reply_form_text_area", :value=>"Money sent", :readonly=> true
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
   -elsif messages.count == 2 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
     = form_for message_form, :url => message_form_action do |b|
       = b.label :content, t("conversations.show.write_a_reply")
-      = b.label messages.first[:sender][:id].to_s.downcase
-      = b.label @current_user.id.to_s.downcase
       = b.text_area :content, :class => "reply_form_text_area", :value=>"Money Recieved", :readonly=> true
       = b.hidden_field :conversation_id
       = b.button t("conversations.show.send_reply"),:onClick=>"history.go(0)"
   -elsif messages.count == 4 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
     = form_for message_form, :url => message_form_action do |c|
       = c.label :content, t("conversations.show.write_a_reply")
-      = c.label messages.first[:sender][:id].to_s.downcase
-      = c.label @current_user.id.to_s.downcase
       = c.text_area :content, :class => "reply_form_text_area", :value=>"Loan repayed", :readonly=> true
       = c.hidden_field :conversation_id
       = c.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
   -elsif messages.count == 5 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
     = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t("conversations.show.write_a_reply")
-      = f.label messages.first[:sender][:id].to_s.downcase
-      = f.label @current_user.id.to_s.downcase
       = f.text_area :content, :class => "reply_form_text_area", :value=>"Transaction Closed", :readonly=> true
       = f.hidden_field :conversation_id
       = f.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
