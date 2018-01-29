@@ -35,13 +35,12 @@
         = t("conversations.new.send_message_to_user", person: author_link).html_safe
       .row
         .col-12
-        %h3
-        %span{:class=>"block-inline",:style=>"width:100%;"}
+
+        %span{:class=>"block-inline",:style=>"width:100%;font-size:7;"}
           = label_tag("message_accept","I accept the loan conditions", {class:"inline"})
           = radio_button_tag(:message, "accept", false, {class: "radio-inline"})
         %br
-        %h3
-        %span{:class=>"block-inline", :style=>"width:100%;"}
+        %span{:class=>"block-inline", :style=>"width:100%;font-size:7;"}
           = label_tag("message_reject","I cannot accept this loan conditions", {class:"inline"})
           = radio_button_tag(:message, "reject", false, {class: "radio-inline"})
       - if quantity
