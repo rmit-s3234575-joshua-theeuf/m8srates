@@ -35,8 +35,8 @@
         = t("conversations.new.send_message_to_user", person: author_link).html_safe
       .row
         .col-12
-          = radio_area_tag(:message, "I accept the loan", :class => "radio-inline", :value=>"accept")
-          = radio_area_tag(:message, "I cannot accept those terms", :class => "radio-inline", :value=>"reject")
+          = radio_button_tag(:message, "I accept the loan", :class => "radio-inline", :value=>"accept")
+          = radio_button_tag(:message, "I cannot accept those terms", :class => "radio-inline", :value=>"reject")
       - if quantity
         = hidden_field_tag(:quantity, quantity)
 
