@@ -84,8 +84,7 @@
   - if total.present?
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
-        =@lisitng_presenter.attributes
-        =@current_user.attributes
+        =@lisitng_presenter
 
         - if total_label.present?
           = total_label
