@@ -143,7 +143,7 @@ class Listing < ApplicationRecord
   validates_presence_of :category
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => proc{ DateTime.now..DateTime.now + 7.months }
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
-
+  validates_inclusion_of :duedate, :allow_nil => :true, :in => proc{ DateTime.now..DateTime.now + 12.months }
   def self.currently_open(status="open")
     status = "open" if status.blank?
     case status
