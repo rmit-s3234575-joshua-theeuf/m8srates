@@ -2,7 +2,7 @@
   - content_for :javascript do
     initialize_reply_form('#{I18n.locale}');
   #reply_form.message-avatar-padding.message-reply-form
-  -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase
+  -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && message.first[:sender][:content] !="I cannot accept these loan conditions"
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
       = a.label messages.first[:sender][:id].to_s.downcase
