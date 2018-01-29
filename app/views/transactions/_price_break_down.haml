@@ -91,7 +91,7 @@
       %span.initiate-transaction-total-value
         = MoneyViewUtils.to_humanized(is_author ? seller_gets : total)
 
-- if @listing.price
+- if tx[:listing].price
   .row
     .col-12
       .listing-price
