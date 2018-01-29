@@ -52,3 +52,18 @@
           = localized_selector_label || t("transactions.initiate.quantity")
         %span.initiate-transaction-quantity-value
           = quantity
+  - if listing[:interest]
+    .initiate-transaction-total-wrapper
+      %span.initiate-transaction-total-label
+      ="Interest:"
+      %span.initiate-transaction-total-value
+      =listing[:interest]
+      ="%"
+  - if total.present?
+    .initiate-transaction-total-wrapper
+      %span.initiate-transaction-total-label
+        - if total_label.present?
+          = (total_label.to_i)*(((listing[:interest].to_i)/100)+1)
+        - else
+          = t("transactions.total")
+        = MoneyViewUtils.to_humanized(is_author ? seller_gets : total)
