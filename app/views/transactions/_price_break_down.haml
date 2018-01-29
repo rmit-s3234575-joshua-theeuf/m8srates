@@ -80,8 +80,8 @@
           = t("conversations.accept.service_fee_label")
         %span.initiate-transaction-sum-value
           = "-#{MoneyViewUtils.to_humanized(fee)}"
-    - @listing.custom_field_values.each do |custom_field_value|
 
+  - @listing.custom_field_values.each do |custom_field_value|
   - if total.present?
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
