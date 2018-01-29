@@ -705,7 +705,8 @@ en:
     username: Username
     username_or_email: "Email or username"
     what_is_this: "What's this?"
-    interest: "This is is the amount of interest a person will pay on the loan. This interest is simple in nature, which means that if the interest rates is 10%, and the loan size is $100. The borrower will pay $110 at the completion of the loan"
+    interest_borrower: "This is the maximum amount of interest you are willing to pay on a given loan. This interest will be simple, which means if you say you cana pay 10% on $100, you will repay $110 to the investor"
+    interest_investor: "The interest in which you set is the interest to be paid at the due date. This interest is simple interest, which means if you charge 10% interest on $100, they will repay $110."
     borrower: "This is the date in which you believe you will be able to repay the loan in full."
     investor: "This is the date in which you would like the loan to be repaid in full"
     removed_user: "Removed user"
