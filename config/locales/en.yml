@@ -705,6 +705,9 @@ en:
     username: Username
     username_or_email: "Email or username"
     what_is_this: "What's this?"
+    interest: "This is is the amount of interest a person will pay on the loan. This interest is simple in nature, which means that if the interest rates is 10%, and the loan size is $100. The borrower will pay $110 at the completion of the loan"
+    borrower: "This is the date in which you believe you will be able to repay the loan in full."
+    investor: "This is the date in which you would like the loan to be repaid in full"
     removed_user: "Removed user"
     payment_fee_info:
       title: "Payment processing fee"
