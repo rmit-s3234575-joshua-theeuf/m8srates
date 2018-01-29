@@ -90,4 +90,4 @@
           = t("transactions.total")
       %span.initiate-transaction-total-value
         = MoneyViewUtils.to_humanized(is_author ? seller_gets : total)
-        =@custom_fields.to_json
+        =@current_user.to_json
