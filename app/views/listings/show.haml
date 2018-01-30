@@ -177,6 +177,13 @@
               %strong Price: $
               =@listing[:price_cents]/100.0.to_d
               %br
+              %strong Interest Rate:
+              =@listing[:interest]
+              %strong %
+              %br              
+              %strong Interest to be paid: $
+              = (@listing[:price_cents]/100.0)*(@listing[:interest]/100.0)
+              %br
               %strong Total Price:
               - interestRate = (1.0+((@listing[:interest])/100))
               - totalPrice = (@listing[:price_cents]-(@listing[:price_cents]*((100.0 - @listing[:interest])/100.0)))+@listing[:price_cents]
