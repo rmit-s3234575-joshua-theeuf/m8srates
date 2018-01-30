@@ -64,7 +64,7 @@
       %span.initiate-transaction-total-label
       ="Due Date:"
       %span.initiate-transaction-total-value
-      -:duedate = listing[:duedate].to_s.split('-')
+      -:duedate => listing[:duedate].to_s.split('-')
       =:duedate[3]
       =:duedate[2]
       =:duedate[1]
