@@ -99,7 +99,7 @@
       =newDate
       %br
     -if listing[:price_cents]
-      ="Interest Amount: $"
+      %strong "Interest Amount: $"
       = (((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))-listing[:price_cents])/100
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
