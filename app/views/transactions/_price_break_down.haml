@@ -66,7 +66,14 @@
       %span.initiate-transaction-total-value
       - date = listing[:duedate].to_date.to_s
       -date.split("-")
-      =date[2]
+      -year = year.merge(date[0], date[1],date[2],date[3])
+      -month = month.merge(date[5],date[6])
+      -day = day.merge(date[8],date[9])
+      =year
+      =day
+      =month
+
+
   - if total.present?
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
