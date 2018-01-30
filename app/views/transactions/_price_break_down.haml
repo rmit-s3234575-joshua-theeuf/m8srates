@@ -69,32 +69,32 @@
       -year = date[0]+ date[1]+date[2]+date[3]
       -month = date[5]+date[6]
       -day = date[8]+date[9]
-      -case month
+      -case month.to_i
       -when 1
-        - month = "January"
+        - m = "January"
       -when 2
-        - month = "February"
+        - m = "February"
       -when 3
-        - month = "March"
+        - m = "March"
       -when 4
-        - month = "April"
+        - m = "April"
       -when 5
-        - month = "May"
+        - m = "May"
       -when 6
-        - month = "June"
+        - m = "June"
       -when 7
-        -month ="July"
+        -m ="July"
       -when 8
-        -month = "August"
+        -m = "August"
       -when 9
-        -month = "September"
+        -m = "September"
       -when 10
-        -month = "October"
+        -m = "October"
       -when 11
-        -month = "November"
+        -m = "November"
       -when 12
-        -month = "December"
-      -newDate = day+", "+month+", "+year
+        -m = "December"
+      -newDate = day+", "+m+", "+year
 
       =newDate
 
