@@ -97,7 +97,9 @@
       -newDate = day+", "+m+", "+year
 
       =newDate
-
+      =t("transaction.price_without_interest:")
+      ="$"
+      =(listing[:price_cents]/100)
 
   - if total.present?
     .initiate-transaction-total-wrapper
