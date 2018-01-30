@@ -138,44 +138,44 @@
     - @listing.custom_field_values.each do |custom_field_value|
       .row
         .col-12
-            = "Interest: "
-            = listing[:interest]
-            = "%"
-            ="Due Date:"
-            %span.initiate-transaction-total-value
-            - date = listing[:duedate].to_date.to_s
-            -date.split("-")
-            -year = date[0]+ date[1]+date[2]+date[3]
-            -month = date[5]+date[6]
-            -day = date[8]+date[9]
-            -case month.to_i
-            -when 1
-              - m = "January"
-            -when 2
-              - m = "February"
-            -when 3
-              - m = "March"
-            -when 4
-              - m = "April"
-            -when 5
-              - m = "May"
-            -when 6
-              - m = "June"
-            -when 7
-              -m ="July"
-            -when 8
-              -m = "August"
-            -when 9
-              -m = "September"
-            -when 10
-              -m = "October"
-            -when 11
-              -m = "November"
-            -when 12
-              -m = "December"
-            -newDate = day+", "+m+", "+year
+          = "Interest: "
+          = listing[:interest]
+          = "%"
+          ="Due Date:"
+          %span.initiate-transaction-total-value
+          - date = listing[:duedate].to_date.to_s
+          -date.split("-")
+          -year = date[0]+ date[1]+date[2]+date[3]
+          -month = date[5]+date[6]
+          -day = date[8]+date[9]
+          -case month.to_i
+          -when 1
+            - m = "January"
+          -when 2
+            - m = "February"
+          -when 3
+            - m = "March"
+          -when 4
+            - m = "April"
+          -when 5
+            - m = "May"
+          -when 6
+            - m = "June"
+          -when 7
+            -m ="July"
+          -when 8
+            -m = "August"
+          -when 9
+            -m = "September"
+          -when 10
+            -m = "October"
+          -when 11
+            -m = "November"
+          -when 12
+            -m = "December"
+          -newDate = day+", "+m+", "+year
 
-            =newDate
+          =newDate
           - custom_field_value.with_type do |question_type|
             = render :partial => "listings/custom_field_partials/listings/showInvestor/#{question_type}", :locals => { :custom_field_value => custom_field_value }
 
