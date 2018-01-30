@@ -137,8 +137,6 @@
             - with_quantity_text(@current_community, @listing) do |text|
               %span.listing-price-quantity
                 = text
-              %br
-              %strong Due Date:
               %span.initiate-transaction-total-value
               - date = @listing[:duedate].to_date.to_s
               -date.split("-")
@@ -171,6 +169,8 @@
               -when 12
                 -m = "December"
               -newDate = day+", "+m+", "+year
+              %br
+              %strong Due Date:
               =newDate
               %br
               %strong Total Price:
