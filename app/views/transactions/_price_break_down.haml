@@ -52,14 +52,15 @@
           = localized_selector_label || t("transactions.initiate.quantity")
         %span.initiate-transaction-quantity-value
           = quantity
-  - if listing[:interest]?
+  =listing.attributes
+  - if listing[:interest]
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
       ="Interest:"
       %span.initiate-transaction-total-value
       =listing[:interest]
       ="%"
-  - if listing[:duedate]?
+  - if listing[:duedate]
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
       ="Due Date:"
@@ -98,7 +99,7 @@
 
       =newDate
       %br
-    -if listing[:price_cents]?
+    -if listing[:price_cents]
       %strong Interest Amount: $
       %strong= ((((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))-listing[:price_cents])/100.00).to_d
     .initiate-transaction-total-wrapper
