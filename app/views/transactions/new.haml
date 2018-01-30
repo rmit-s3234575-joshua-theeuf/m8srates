@@ -36,7 +36,7 @@
       .row
         .col-12
         -listing = Listing.find(listing[:id].to_i)
-        -if listing.category_id == 5
+        -if listing.category_id == 3
           %span{:class=>"block-inline",:style=>"width:100%;font-size:7;"}
             = label_tag("message_I_accept_the_loan_conditions","I accept the loan conditions", {class:"inline"})
             = radio_button_tag(:message, "I accept the loan conditions", false, {class: "radio-inline"})
@@ -44,7 +44,7 @@
           %span{:class=>"block-inline", :style=>"width:100%;font-size:7;"}
             = label_tag("message_I_cannot_accept_these_loan_conditions","I cannot accept these loan conditions", {class:"inline"})
             = radio_button_tag(:message, "I cannot accept these loan conditions", false, {class: "radio-inline"})
-        -if listing.category_id==3
+        -if listing.category_id==5
           %span{:class=>"block-inline",:style=>"width:100%;font-size:7;"}
             = label_tag("message_I_accept_the_loan_conditions","I accept the loan conditions", {class:"inline"})
             = radio_button_tag(:message, "I accept the loan conditions", false, {class: "radio-inline"})
