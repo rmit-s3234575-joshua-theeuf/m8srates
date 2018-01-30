@@ -138,7 +138,7 @@
     - @listing.custom_field_values.each do |custom_field_value|
       .row
         .col-12
-          ="Due Date:"
+          %strong "Due Date: " 
           %span.initiate-transaction-total-value
           - date = @listing[:duedate].to_date.to_s
           -date.split("-")
@@ -172,6 +172,7 @@
             -m = "December"
           -newDate = day+", "+m+", "+year
           =newDate
+          %br
           - custom_field_value.with_type do |question_type|
             = render :partial => "listings/custom_field_partials/listings/showInvestor/#{question_type}", :locals => { :custom_field_value => custom_field_value }
 
