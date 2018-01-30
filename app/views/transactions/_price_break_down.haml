@@ -110,6 +110,7 @@
         - else
           = "Total Price: "
           - interestRate = (1.0+(((listing[:interest].to_i))/100.0))
+          = interestRate
           - totalPrice = ((listing[:price_cents].to_i)-((listing[:price_cents].to_i)*((100.0 - (listing[:interest].to_i))/100.0)))+(listing[:price_cents].to_i)
           = "$ "
           = ((totalPrice.to_i)/100)
