@@ -175,7 +175,7 @@
               =newDate
               %br
               %strong= %
-              -price = (@listing[:price_cents].to_i)/100)
+              -price = ((@listing[:price_cents].to_i)/100)
               = price
               %strong Total Price:
               - interestRate = (1.0+((@listing[:interest])/100))
