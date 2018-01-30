@@ -53,20 +53,19 @@
         %span.initiate-transaction-quantity-value
           = quantity
   - @listing = Listing.find(listing[:id].to_i)
-  = @listing.attributes
   - if listing[:interest]
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
       ="Interest:"
       %span.initiate-transaction-total-value
-      =listing[:interest]
+      =@listing.interest
       ="%"
-  - if listing[:duedate]
+  - if @listing.duedate
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
       ="Due Date:"
       %span.initiate-transaction-total-value
-      - date = listing[:duedate].to_date.to_s
+      - date = @listing.duedate.to_date.to_s
       -date.split("-")
       -year = date[0]+ date[1]+date[2]+date[3]
       -month = date[5]+date[6]
@@ -100,10 +99,10 @@
 
       =newDate
       %br
-    -if listing[:price_cents]
+    -if @listing.price_cents
       %strong Interest Amount: $
-      %strong= ((((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))-listing[:price_cents])/100.00).to_d
+      %strong= ((((@listing.price_cents.to_i)*(1+((@listing.interest.to_i)/100.00)))-@listing.price_cents)/100.00).to_d
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
       = "Total Price: $"
-      = (((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))/100.00).to_d
+      = (((@listing.price_cents.to_i)*(1+((@listing.interest.to_i)/100.00)))/100.00).to_d
