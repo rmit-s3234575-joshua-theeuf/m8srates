@@ -4,7 +4,7 @@
 %b= "#{question_name}"
 
 .row.checkbox-group
-  - ArrayUtils.each_slice_columns(question.options.sort, 3) do |column|
+  - ArrayUtils.each_slice_columns(question.options.sort, 2) do |column|
     .col-4
       - column.each do |option|
         - selected = custom_field_value.selected_options.include?(option)
