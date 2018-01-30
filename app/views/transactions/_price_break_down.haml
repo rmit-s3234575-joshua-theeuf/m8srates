@@ -100,8 +100,8 @@
       %br
     -if listing[:price_cents]
       %strong Interest Amount: $
-      %strong= (((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))-listing[:price_cents])/100.00
+      %strong= ((((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))-listing[:price_cents])/100.00).to_d
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
       = "Total Price: $"
-      = ((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))/100.00
+      = (((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))/100.00).to_d
