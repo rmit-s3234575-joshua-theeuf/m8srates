@@ -52,7 +52,7 @@
           = localized_selector_label || t("transactions.initiate.quantity")
         %span.initiate-transaction-quantity-value
           = quantity
-  =Listings.find_by(listing[:id]).attributes
+  =Listing.find_by(listing[:id]).attributes
   - if listing[:interest]
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
