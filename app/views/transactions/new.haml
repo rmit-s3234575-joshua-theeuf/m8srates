@@ -35,7 +35,7 @@
         = t("conversations.new.send_message_to_user", person: author_link).html_safe
       .row
         .col-12
-        -listing = @listing.find(listing[:id].to_i)
+        -listing = Listing.find(listing[:id].to_i)
         -if listing.category_id == 5
           %span{:class=>"block-inline",:style=>"width:100%;font-size:7;"}
             = label_tag("message_I_accept_the_loan_conditions","I accept the loan conditions", {class:"inline"})
