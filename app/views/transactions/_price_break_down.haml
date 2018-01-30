@@ -69,9 +69,36 @@
       -year = date[0]+ date[1]+date[2]+date[3]
       -month = date[5]+date[6]
       -day = date[8]+date[9]
-      -newDate = month+"/"+day+"/"+year
-      -dueDate = strptime(newDate, "%m/%d/%Y")
-      =dueDate
+      -case month
+      -when 1
+        - month = "January"
+      -when 2
+        - month = "February"
+      -when 3
+        - month = "March"
+      -when 4
+        - month = "April"
+      -when 5
+        - month = "May"
+      -when 6
+        - month = "June"
+      -when 7
+        -month ="July"
+      -when 8
+        -month = "August"
+      -when 9
+        -month = "September"
+      -when 10
+        -month = "October"
+      -when 11
+        -month = "November"
+      -when 12
+        -month = "December"
+      -else
+      -end
+      -newDate = day+", "+month+", "+year
+
+      =newDate
 
 
   - if total.present?
