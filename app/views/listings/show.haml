@@ -137,7 +137,14 @@
             - with_quantity_text(@current_community, @listing) do |text|
               %span.listing-price-quantity
                 = text
-
+              %strong Due Date:
+              %span.initiate-transaction-total-value
+              - date = @listing[:duedate].to_date.to_s
+              -date.split("-")
+              -year = date[0]+ date[1]+date[2]+date[3]
+              -month = date[5]+date[6]
+              -day = date[8]+date[9]
+              = month + year + day
     - @listing.custom_field_values.each do |custom_field_value|
       .row
         .col-12
