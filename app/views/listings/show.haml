@@ -133,53 +133,52 @@
               - with_quantity_text(@current_community, @listing) do |text|
                 %span.listing-price-quantity
                   = text
-
-      - @listing.custom_field_values.each do |custom_field_value|
-        .row
-          .col-12
-            %strong Due Date:
-            %span.initiate-transaction-total-value
-            - date = @listing[:duedate].to_date.to_s
-            -date.split("-")
-            -year = date[0]+ date[1]+date[2]+date[3]
-            -month = date[5]+date[6]
-            -day = date[8]+date[9]
-            -case month.to_i
-            -when 1
-              - m = "January"
-            -when 2
-              - m = "February"
-            -when 3
-              - m = "March"
-            -when 4
-              - m = "April"
-            -when 5
-              - m = "May"
-            -when 6
-              - m = "June"
-            -when 7
-              -m ="July"
-            -when 8
-              -m = "August"
-            -when 9
-              -m = "September"
-            -when 10
-              -m = "October"
-            -when 11
-              -m = "November"
-            -when 12
-              -m = "December"
-            -newDate = day+", "+m+", "+year
-            =newDate
-            %br
-            %strong Total Price:
-            -interestRate = (1.0+((@listing[:interest])/100))
-            - totalPrice = (@listing[:price_cents]-(@listing[:price_cents]*((100.0 - @listing[:interest])/100.0)))+@listing[:price_cents]
-            %strong $
-            = (totalPrice/100).to_i
-            %br
-            - custom_field_value.with_type do |question_type|
-              = render :partial => "listings/custom_field_partials/listings/showInvestor/#{question_type}", :locals => { :custom_field_value => custom_field_value }
+        - @listing.custom_field_values.each do |custom_field_value|
+          .row
+            .col-12
+              %strong Due Date:
+              %span.initiate-transaction-total-value
+              - date = @listing[:duedate].to_date.to_s
+              -date.split("-")
+              -year = date[0]+ date[1]+date[2]+date[3]
+              -month = date[5]+date[6]
+              -day = date[8]+date[9]
+              -case month.to_i
+              -when 1
+                - m = "January"
+              -when 2
+                - m = "February"
+              -when 3
+                - m = "March"
+              -when 4
+                - m = "April"
+              -when 5
+                - m = "May"
+              -when 6
+                - m = "June"
+              -when 7
+                -m ="July"
+              -when 8
+                -m = "August"
+              -when 9
+                -m = "September"
+              -when 10
+                -m = "October"
+              -when 11
+                -m = "November"
+              -when 12
+                -m = "December"
+              -newDate = day+", "+m+", "+year
+              =newDate
+              %br
+              %strong Total Price:
+              -interestRate = (1.0+((@listing[:interest])/100))
+              - totalPrice = (@listing[:price_cents]-(@listing[:price_cents]*((100.0 - @listing[:interest])/100.0)))+@listing[:price_cents]
+              %strong $
+              = (totalPrice/100).to_i
+              %br
+              - custom_field_value.with_type do |question_type|
+                = render :partial => "listings/custom_field_partials/listings/showInvestor/#{question_type}", :locals => { :custom_field_value => custom_field_value }
 
     -if @listing.category_id ==3
       %strong Requested Amount:
@@ -197,7 +196,7 @@
       - @listing.custom_field_values.each do |custom_field_value|
         .row
           .col-12
-            %strong Date i can repay: 
+            %strong Date i can repay:
             %span.initiate-transaction-total-value
             - date = @listing[:duedate].to_date.to_s
             -date.split("-")
