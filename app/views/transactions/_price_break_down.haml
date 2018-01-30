@@ -100,7 +100,7 @@
       %br
       ="Price without interest: "
       ="$"
-      =(listing[:price_cents]/100)
+      =((listing[:price_cents])/100)
 
   - if total.present?
     .initiate-transaction-total-wrapper
