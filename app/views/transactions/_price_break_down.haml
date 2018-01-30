@@ -53,6 +53,7 @@
         %span.initiate-transaction-quantity-value
           = quantity
   - @listing = Listing.find(listing[:id].to_i)
+  %h1 Loan Terms 
   - if listing[:interest]
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
