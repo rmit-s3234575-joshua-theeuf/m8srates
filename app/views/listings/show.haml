@@ -174,13 +174,10 @@
               %strong Due Date:
               =newDate
               %br
-              %strong Price: $
-              =@listing[:price_cents]/100.0.to_d
-              %br
               %strong Interest Rate:
               =@listing[:interest]
               %strong %
-              %br              
+              %br
               %strong Interest to be paid: $
               = (@listing[:price_cents]/100.0)*(@listing[:interest]/100.0)
               %br
