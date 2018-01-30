@@ -138,8 +138,6 @@
       %br
       %strong Interest Amount: $
       %strong= ((((@listing.price_cents.to_i)*(1+((@listing.interest.to_i)/100.00)))-@listing.price_cents)/100.00).to_d
-      %strong Start Date:
-      = Date.today
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
       = "Total Price: $"
