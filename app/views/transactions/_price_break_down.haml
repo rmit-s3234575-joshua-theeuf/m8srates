@@ -64,7 +64,7 @@
       %span.initiate-transaction-total-label
       ="Due Date:"
       %span.initiate-transaction-total-value
-      = Date.strptime(listing[:duedate].to_s.to_date.to_s, "%m/%d/%Y")
+      = Date.strptime(listing[:duedate].to_s.to_date.to_s, "%d/%m/%Y")
       =Date.parse listing[:duedate].to_s
   - if total.present?
     .initiate-transaction-total-wrapper
