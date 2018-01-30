@@ -100,9 +100,6 @@
       %br
       ="Price without interest: "
       ="$"
-      =((listing[:price_cents])
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
         = "Total Price: "
-        - interestRate = interest[:interest]
-        = interestRate
