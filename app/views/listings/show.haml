@@ -176,7 +176,7 @@
           %strong Total Price:
           -interestRate = (1.0+((@listing[:interest])/100))
           - totalPrice = (@listing[:price_cents]-(@listing[:price_cents]*((100.0 - @listing[:interest])/100.0)))+@listing[:price_cents]
-          %strong $"
+          %strong $
           = (totalPrice/100).to_i
           %br
           - custom_field_value.with_type do |question_type|
