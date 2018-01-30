@@ -121,10 +121,13 @@
 
   %aside.col-4
     <h3>
-    -if @listing.category_id == 3
-      Investor
-    -if @listing.category_id ==2
-      Borrower
+    -if @listing.category_id == 5
+      %strong Investor
+      %p This is the amount of money a person wishes to borrow.
+
+    -if @listing.category_id ==3
+      %strong Borrower
+      %p This is how much money a person is willing to lend.
     </h3>
     - if @listing.price
       .row
@@ -135,6 +138,7 @@
             - with_quantity_text(@current_community, @listing) do |text|
               %span.listing-price-quantity
                 = text
+
     - @listing.custom_field_values.each do |custom_field_value|
       .row
         .col-12
