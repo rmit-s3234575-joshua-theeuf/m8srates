@@ -101,8 +101,6 @@
       ="Price without interest: "
       ="$"
       =((listing[:price_cents])/100)
-
-  - if total.present?
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
         - if total_label.present?
