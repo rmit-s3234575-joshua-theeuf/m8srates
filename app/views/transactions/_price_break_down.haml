@@ -64,7 +64,7 @@
       %span.initiate-transaction-total-label
       ="Due Date:"
       %span.initiate-transaction-total-value
-      =listing[:duedate].to_date
+      =listing[:duedate].to_s.to_date
   - if total.present?
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
