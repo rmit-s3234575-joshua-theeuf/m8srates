@@ -140,7 +140,7 @@
         .col-12
           ="Due Date:"
           %span.initiate-transaction-total-value
-          - date = listing[:duedate].to_date.to_s
+          - date = @listing[:duedate].to_date.to_s
           -date.split("-")
           -year = date[0]+ date[1]+date[2]+date[3]
           -month = date[5]+date[6]
