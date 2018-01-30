@@ -174,9 +174,8 @@
               %strong Due Date:
               =newDate
               %br
-              %strong= %
-              -price = @listing[:price_cents].to_i/100
-              = price
+              %strong Price
+              =@listing[:price_cents]
               %strong Total Price:
               - interestRate = (1.0+((@listing[:interest])/100))
               - totalPrice = (@listing[:price_cents]-(@listing[:price_cents]*((100.0 - @listing[:interest])/100.0)))+@listing[:price_cents]
