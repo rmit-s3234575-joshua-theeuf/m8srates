@@ -56,13 +56,13 @@
       %span.initiate-transaction-total-label
       ="Interest:"
       %span.initiate-transaction-total-value
-      =listing[:interest]
+      =@listing[:interest]
       ="%"
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
       ="Due Date:"
       %span.initiate-transaction-total-value
-      - date = listing[:duedate].to_date.to_s
+      - date = @listing[:duedate].to_date.to_s
       -date.split("-")
       -year = date[0]+ date[1]+date[2]+date[3]
       -month = date[5]+date[6]
@@ -98,7 +98,7 @@
       %br
       ="Price without interest: "
       ="$"
-      =(listing[:price_cents]/100)
+      =(@listing[:price_cents]/100)
 
   - if total.present?
     .initiate-transaction-total-wrapper
@@ -107,7 +107,7 @@
           = total_label
         - else
           = "Total Price: "
-        - interestRate = (1.0+((listing[:interest])/100))
-        - totalPrice = (listing[:price_cents]-(listing[:price_cents]*((100.0 - listing[:interest])/100.0)))+listing[:price_cents]
+        - interestRate = (1.0+((@listing[:interest])/100))
+        - totalPrice = (@listing[:price_cents]-(@listing[:price_cents]*((100.0 - @listing[:interest])/100.0)))+@listing[:price_cents]
         = "$ "
         = (totalPrice/100).to_i
