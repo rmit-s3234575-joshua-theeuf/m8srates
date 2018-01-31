@@ -2,14 +2,25 @@
   - content_for :javascript do
     initialize_reply_form('#{I18n.locale}');
   -listing = Listing.find(@listing.id)
+  -lenderFirstName = @current_user.first_name
+  -lenderLastName = @current_user.last_name
+  -startDate = Date.today.to_s
+  -borrowerFirstName = messages.first[:sender][:first_name]
+  -borrowerLastName = messages.first[:sender][:last_name]
+  -price = (listing[:price_cents]/100)
+  -dueDate = listing[:duedate]
+  -interestRate = listing[:interest]
+  -totalPrice = number_with_precision((((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))/100.00).to_d, precision:2)
   #reply_form.message-avatar-padding.message-reply-form
   -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] =="I accept the loan conditions"
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
-      = a.text_area :content, :class => "reply_form_text_area", :value=>"On #{Date.today.to_s}, I, #{@current_user.first_name} #{@current_user.last_name} will lend #{messages.first[:sender][:first_name]} #{messages.first[:sender][:last_name]} a sum of $#{(listing[:price_cents]/100)} in the form of (cash, check, traveler’s check, or money order), which is to be repaid in full by #{listing[:duedate]}.
-      The interest rate is #{listing[:interest]}% and as a result, the amount due on #{listing[:duedate]} is #{number_with_precision((((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))/100.00).to_d, precision:2)}.", :readonly=> true
+      = a.text_area :content, :class => "reply_form_text_area", :value=>"On #{startDate}, I, #{lenderFirstName} #{lenderLastName} will lend #{borrowerFirstName} #{borrowerLastName} a sum of $#{price} in the form of (cash, check, traveler’s check, or money order), which is to be repaid in full by #{dueDate}.
+      The interest rate is #{interestRate}% and as a result, the amount due on #{dueDate} is #{totalPrice}.", :readonly=> true
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
+
+      
   -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] !="I cannot accept these loan conditions"
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
