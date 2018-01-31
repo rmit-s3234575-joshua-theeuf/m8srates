@@ -98,8 +98,6 @@
         -m = "December"
       -newDate = day+", "+m+", "+year
       =newDate
-      %br
-      %strong Start Date:
       -start = Date.today.to_s
       -start.split("-")
       -year = date[0]+ date[1]+date[2]+date[3]
@@ -131,7 +129,6 @@
       -when 12
         -m = "December"
       -startDate = day+", "+m+", "+year
-      =startDate
       %br
     -if @listing.price_cents
       %strong Loan before interest: $
