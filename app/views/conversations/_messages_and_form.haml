@@ -1,6 +1,6 @@
 - if role == :participant
   - content_for :javascript do
-    initialize_reply_form('<%=I18n.locale%>');
+    initialize_reply_form('#{I18n.locale}');
   -listing = Listing.find(@listing.id)
   -lenderFirstName = @current_user.given_name
   -lenderLastName = @current_user.family_name
@@ -15,13 +15,12 @@
   -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] =="I accept the loan conditions"
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
-      = a.text_area :content, :class => "reply_form_text_area", :value=>"On <%=startDate%>, I, <%=lenderFirstName%> <%=lenderLastName%> will lend <%=borrowerFirstName%> <%=borrowerLastName%> a sum of $<%=price%> in the form of (cash, check, traveler’s check, or money order), which is to be repaid in full by <%=dueDate%>.
-      The interest rate is <%=interestRate%> and as a result, the amount due on <%=dueDate%> is <%=totalPrice%>.", :readonly=> true
+      = a.text_area :content, :class => "reply_form_text_area", :value=>"On #{startDate}, I, #{lenderFirstName} #{lenderLastName} will lend #{borrowerFirstName} #{borrowerLastName} a sum of $#{price} in the form of (cash, check, traveler’s check, or money order), which is to be repaid in full by #{dueDate}. The interest rate is #{interestRate}% and as a result, the amount due on #{dueDate} is #{totalPrice}.", :readonly=> true
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
 
 
-  -if messages.count == 2 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] !="I cannot accept these loan conditions"
+  -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] !="I cannot accept these loan conditions"
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
       = a.text_area :content, :class => "reply_form_text_area", :value=>"Money sent", :readonly=> true
