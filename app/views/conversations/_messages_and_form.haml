@@ -38,7 +38,7 @@
   -borrowerFirstName = messages.first[:sender][:first_name]
   -borrowerLastName = messages.first[:sender][:last_name]
   -price = listing[:price_cents]/100
-  -dueDate = listing[:duedate]
+  -dueDate = listing[:duedate].to_date.to_s
   -dueDate.split("-")
   -year = dueDate[0]+ dueDate[1]+dueDate[2]+dueDate[3]
   -month = dueDate[5]+dueDate[6]
