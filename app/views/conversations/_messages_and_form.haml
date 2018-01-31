@@ -93,7 +93,7 @@
       %br
       %span{:class=>"block-inline",:style=>"width:100%;font-size:7;"}
         = label_tag("Electronic_Funds_Transfer","Electronic Funds Transfer", {class:"inline"})
-        = radio_button_tag("Electronic Funds Transfer", false, {class: "radio-inline"})
+        = radio_button_tag(:message,"Electronic Funds Transfer", false, {class: "radio-inline" onlick:"yesnoCheck()"})
       %br
       %span{:class=>"block-inline", :style=>"width:100%;font-size:7;"}
         = label_tag("message_Cash","Cash", {class:"inline"})
