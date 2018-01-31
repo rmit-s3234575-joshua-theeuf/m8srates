@@ -75,17 +75,44 @@
   -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] =="I accept the loan conditions"
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
-      = a.text_area :content, :class => "reply_form_text_area", :value=>"On #{startDate}, I, #{lenderFirstName} #{lenderLastName} will lend #{borrowerFirstName} #{borrowerLastName} a sum of $#{price} in the form of (cash, check, traveler’s check, or money order), which is to be repaid in full by #{dueDate}. The interest rate is #{interestRate}% and as a result, the amount due on #{dueDate} is $#{totalPrice}.", :readonly=> true
+      = a.text_area :content, :class => "reply_form_text_area", :value=>"On #{startDate}, I, #{lenderFirstName} #{lenderLastName} will lend #{borrowerFirstName} #{borrowerLastName} a sum of $#{price} in the form of (cash, check, traveler’s check, or money order), which is to be repaid in full by #{dueDate}. The interest rate is #{interestRate}% and as a result, the amount due on #{dueDate} is $#{totalPrice}. ", :readonly=> true
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
 
 
-  -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] !="I cannot accept these loan conditions"
+  -if messages.count == 2 && @current_user.id.to_s.downcase  ==  messages.first[:sender][:id].to_s.downcase && messages.first[:content] !="I cannot accept these loan conditions"
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
-      = a.text_area :content, :class => "reply_form_text_area", :value=>"Money sent", :readonly=> true
+      = a.text_area :content, :class => "reply_form_text_area", :value=>"	  On #{startDate}, I, #{borrowerFirstName} #{borrowerLastName} agree to borrow money from #{lenderFirstName} #{lenderLastName} a sum of $#{price} in the form of (cash, electronic funds transfer), which is to be repaid in full by #{dueDate}. At the specified interest rate of #{interestRate}% and as a result, the amount due on #{dueDate} is $#{totalPrice}.", :readonly=> true
+      = a.hidden_field :conversation_id
+      = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
+  -if messages.count == 3 && @current_user.id.to_s.downcase  ==  messages.first[:sender][:id].to_s.downcase && messages.first[:content] !="I cannot accept these loan conditions"
+    = form_for message_form, :url => message_form_action do |a|
+      = a.label :content, t("conversations.show.write_a_reply")
+      %strong How do you want to recive the funds?
+      %br
+      = %span{:class=>"block-inline",:style=>"width:100%;font-size:7;"}
+        = label_tag("Electronic_Funds_Transfer","Electronic Funds Transfer", {class:"inline"})
+        = radio_button_tag("Electronic Funds Transfer", false, {class: "radio-inline"})
+        = a.text_area :content, :class=>"reply_form_text_area", :value=>"Enter Account Name: #{%br} Enter Account Number: #{%br} Enter BSB: ", :style=>"display:none"
+      %br
+      %span{:class=>"block-inline", :style=>"width:100%;font-size:7;"}
+        = label_tag("message_Cash","Cash", {class:"inline"})
+        = radio_button_tag(:message, "Cash", false, {class: "radio-inline"})
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
 
+
 %messages
-  = render :partial => "conversations/message", :collection => messages, as: :message_or_action
+
+= render :partial => "conversations/message", :collection => messages, as: :message_or_action
+
+
+:javascript
+  function yesnoCheck() {
+    if (document.getElementById('message_Electronic_Funds_Transfer').checked) {
+        document.getElementById('message_content').style.visibility = 'visible';
+    }
+    else document.getElementById('ifYes').style.visibility = 'hidden';
+
+    }
