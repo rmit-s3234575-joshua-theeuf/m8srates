@@ -98,7 +98,7 @@
         = label_tag("radio_Cash","Cash", {class:"inline"})
         = radio_button_tag(:radio, "Cash", false, {class: "radio-inline", onclick:"yesnoCheck()"})
         = a.label :content, t("conversations.show.write_a_reply"), :id=>"reply", :style=>"display:none"
-        = a.text_area :content, :class=>"reply_form_text_area", :value=>"Enter Account Name:  Enter Account Number:  Enter BSB: ", :style=>"display:none"
+        = a.text_area :content, :class=>"reply_form_text_area", :value=>"", :style=>"display:none"
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
 
@@ -112,11 +112,13 @@
   function yesnoCheck() {
     if (document.getElementById('radio_Electronic_Funds_Transfer').checked) {
         document.getElementById('message_content').style.display = 'inline-block';
+        document.getElementById('message_content').value="Enter Account Name:  Enter Account Number:  Enter BSB: "
         documnet.getElementById('reply').style.display="inline-block"
 
     }
     if (document.getElementById('radio_Cash').checked) {
-        document.getElementById('message_content').style.display = 'none';
-        documnet.getElementById('reply').style.display="none"
+        document.getElementById('message_content').style.display = 'inline-block';
+        documnet.getElementById('reply').style.display="inline-block."
+        document.getElementById('message_content').value="Cash is prefered. "
 
     }}
