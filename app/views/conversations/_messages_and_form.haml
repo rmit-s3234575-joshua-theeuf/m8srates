@@ -88,7 +88,6 @@
       = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
   -if messages.count == 3 && @current_user.id.to_s.downcase  ==  messages.first[:sender][:id].to_s.downcase && messages.first[:content] !="I cannot accept these loan conditions"
     = form_for message_form, :url => message_form_action do |a|
-      = a.label :content, t("conversations.show.write_a_reply")
       %strong How do you want to recive the funds?
       %br
       %span{:class=>"block-inline",:style=>"width:100%;font-size:7;"}
@@ -98,6 +97,7 @@
       %span{:class=>"block-inline", :style=>"width:100%;font-size:7;"}
         = label_tag("message_Cash","Cash", {class:"inline"})
         = radio_button_tag(:message, "Cash", false, {class: "radio-inline", onclick:"yesnoCheck()"})
+        = a.label :content, t("conversations.show.write_a_reply")
         = a.text_area :content, :class=>"reply_form_text_area", :value=>"Enter Account Name:  Enter Account Number:  Enter BSB: ", :style=>"display:none"
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
@@ -114,7 +114,7 @@
         document.getElementById('message_content').style.display = 'inline-block';
 
     }
-    if (document.getElementById('message_cash').checked) {
+    if (document.getElementById('message_Cash').checked) {
         document.getElementById('message_content').style.display = 'none';
 
     }}
