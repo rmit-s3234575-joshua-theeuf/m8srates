@@ -101,6 +101,31 @@
         = a.text_area :content, :class=>"reply_form_text_area", :value=>"", :style=>"display:none"
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
+  -if messages.count == 5 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content].include "Acc"
+    = form_for message_form, :url => message_form_action do |a|
+      = a.label :content, t("conversations.show.write_a_reply")
+      = a.text_area :content, :class => "reply_form_text_area", :value=>"Funds have been transfered. Reciept Number: "
+      = a.hidden_field :conversation_id
+      = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
+  -if messages.count == 5 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content].include "Acc"
+    = form_for message_form, :url => message_form_action do |a|
+      = a.label :content, t("conversations.show.write_a_reply")
+      = a.text_area :content, :class => "reply_form_text_area", :value=>"Funds have been transfered. Reciept Number: My bank details are. Enter Account Name:  Enter Account Number:  Enter BSB:"
+      = a.hidden_field :conversation_id
+      = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
+  -if messages.count == 5 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content].include "Cash"
+    = form_for message_form, :url => message_form_action do |a|
+      = a.label :content, t("conversations.show.write_a_reply")
+      = a.text_area :content, :class => "reply_form_text_area", :placeholder=>"Organise the exchange of cash."
+      = a.hidden_field :conversation_id
+      = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
+  -if messages.count < 5
+    = form_for message_form, :url => message_form_action do |a|
+      = a.label :content, t("conversations.show.write_a_reply")
+      = a.text_area :content, :class => "reply_form_text_area", :placeholder=>"Discuss further details of the loan."
+      = a.hidden_field :conversation_id
+      = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
+
 
 
 %messages
@@ -119,6 +144,7 @@
     if (document.getElementById('radio_Cash').checked) {
         document.getElementById('message_content').style.display = 'inline-block';
         documnet.getElementById('reply').style.display="inline-block."
-        document.getElementById('message_content').value="Cash is prefered. "
+        document.getElementById('message_content').value="Cash is prefered."
+        document.getElementById('message_content').readonly=true
 
     }}
