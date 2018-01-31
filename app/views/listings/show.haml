@@ -179,13 +179,13 @@
               %strong %
               %br
               %strong Interest to be paid: $
-              = (@listing[:price_cents]/100.0)*(@listing[:interest]/100.0)
+              = number_with_precision((@listing[:price_cents]/100.0)*(@listing[:interest]/100.0), precision: 2)
               %br
               %strong Total Price:
               - interestRate = (1.0+((@listing[:interest])/100))
               - totalPrice = (@listing[:price_cents]-(@listing[:price_cents]*((100.0 - @listing[:interest])/100.0)))+@listing[:price_cents]
               %strong $
-              = (totalPrice/100).to_d
+              = number_with_precision((totalPrice/100).to_d, precision: 2)
     - @listing.custom_field_values.each do |custom_field_value|
       .row
         .col-12
