@@ -2,8 +2,8 @@
   - content_for :javascript do
     initialize_reply_form('#{I18n.locale}');
   -listing = Listing.find(@listing.id)
-  -lenderFirstName = @current_user.first_name
-  -lenderLastName = @current_user.last_name
+  -lenderFirstName = @current_user.given_name
+  -lenderLastName = @current_user.family_name
   -startDate = Date.today.to_s
   -borrowerFirstName = messages.first[:sender][:first_name]
   -borrowerLastName = messages.first[:sender][:last_name]
