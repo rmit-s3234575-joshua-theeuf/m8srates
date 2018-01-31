@@ -53,7 +53,7 @@
         %span.initiate-transaction-quantity-value
           = quantity
   - @listing = Listing.find(listing[:id].to_i)
-  %h1{:style=>"text-decoration underline;"} Loan Terms 
+  %h1{:style=>"text-decoration underline;"} Loan Terms
   - if listing[:interest]
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
@@ -135,11 +135,11 @@
       %br
     -if @listing.price_cents
       %strong Loan before interest: $
-      %strong= (@listing.price_cents.to_d/100)
+      %strong= number_with_precision((@listing.price_cents.to_d/100),precision:2)
       %br
       %strong Interest Amount: $
-      %strong= ((((@listing.price_cents.to_i)*(1+((@listing.interest.to_i)/100.00)))-@listing.price_cents)/100.00).to_d
+      %strong= number_with_precision(((((@listing.price_cents.to_i)*(1+((@listing.interest.to_i)/100.00)))-@listing.price_cents)/100.00).to_d, precision:2)
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
       = "Total Price: $"
-      = (((@listing.price_cents.to_i)*(1+((@listing.interest.to_i)/100.00)))/100.00).to_d
+      = number_with_precision((((@listing.price_cents.to_i)*(1+((@listing.interest.to_i)/100.00)))/100.00).to_d, precision:2)
