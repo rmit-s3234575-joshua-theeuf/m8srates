@@ -4,7 +4,37 @@
   -listing = Listing.find(@listing.id)
   -lenderFirstName = @current_user.given_name
   -lenderLastName = @current_user.family_name
-  -startDate = Date.today.to_s
+  -start = Date.today.to_date.to_s
+  -start.split("-")
+  -year = date[0]+ date[1]+date[2]+date[3]
+  -month = date[5]+date[6]
+  -day = date[8]+date[9]
+  -case month.to_i
+  -when 1
+    - m = "January"
+  -when 2
+    - m = "February"
+  -when 3
+    - m = "March"
+  -when 4
+    - m = "April"
+  -when 5
+    - m = "May"
+  -when 6
+    - m = "June"
+  -when 7
+    -m ="July"
+  -when 8
+    -m = "August"
+  -when 9
+    -m = "September"
+  -when 10
+    -m = "October"
+  -when 11
+    -m = "November"
+  -when 12
+    -m = "December"
+  -startDate = day+", "+m+", "+year
   -borrowerFirstName = messages.first[:sender][:first_name]
   -borrowerLastName = messages.first[:sender][:last_name]
   -price = listing[:price_cents]/100
@@ -15,7 +45,7 @@
   -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] =="I accept the loan conditions"
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
-      = a.text_area :content, :class => "reply_form_text_area", :value=>"On #{startDate}, I, #{lenderFirstName} #{lenderLastName} will lend #{borrowerFirstName} #{borrowerLastName} a sum of $#{price} in the form of (cash, check, traveler’s check, or money order), which is to be repaid in full by #{dueDate}. The interest rate is #{interestRate}% and as a result, the amount due on #{dueDate} is #{totalPrice}.", :readonly=> true
+      = a.text_area :content, :class => "reply_form_text_area", :value=>"On #{startDate}, I, #{lenderFirstName} #{lenderLastName} will lend #{borrowerFirstName} #{borrowerLastName} a sum of $#{price} in the form of (cash, check, traveler’s check, or money order), which is to be repaid in full by #{dueDate}. The interest rate is #{interestRate}% and as a result, the amount due on #{dueDate} is $#{totalPrice}.", :readonly=> true
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
 
