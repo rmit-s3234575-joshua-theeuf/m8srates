@@ -6,9 +6,9 @@
   -lenderLastName = @current_user.family_name
   -start = Date.today.to_date.to_s
   -start.split("-")
-  -year = date[0]+ date[1]+date[2]+date[3]
-  -month = date[5]+date[6]
-  -day = date[8]+date[9]
+  -year = start[0]+ start[1]+start[2]+start[3]
+  -month = start[5]+start[6]
+  -day = start[8]+start[9]
   -case month.to_i
   -when 1
     - m = "January"
