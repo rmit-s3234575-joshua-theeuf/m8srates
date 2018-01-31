@@ -99,40 +99,6 @@
       -newDate = day+", "+m+", "+year
       =newDate
       %br
-      %strong Start Date:
-      -start = Date.today.to_s
-      -start.split("-")
-      -year = date[0]+ date[1]+date[2]+date[3]
-      -month = date[5]+date[6]
-      -day = date[8]+date[9]
-      -case month.to_i
-      -when 1
-        - m = "January"
-      -when 2
-        - m = "February"
-      -when 3
-        - m = "March"
-      -when 4
-        - m = "April"
-      -when 5
-        - m = "May"
-      -when 6
-        - m = "June"
-      -when 7
-        -m ="July"
-      -when 8
-        -m = "August"
-      -when 9
-        -m = "September"
-      -when 10
-        -m = "October"
-      -when 11
-        -m = "November"
-      -when 12
-        -m = "December"
-      -startDate = day+", "+m+", "+year
-      =startDate
-      %br
     -if @listing.price_cents
       %strong Loan before interest: $
       %strong= number_with_precision((@listing.price_cents.to_d/100),precision:2)
@@ -142,4 +108,4 @@
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
       = "Total Price: $"
-      = number_with_precision((((@listing.price_cents.to_i)*(1+((@listing.interest.to_i)/100.00)))/100.00).to_d, precision:2)
+      = number_with_precision((((@listing.price_cents.to_i)*(1+((@listing.interest.to_i)/100.00)))/100.00).to_d, precision:2
