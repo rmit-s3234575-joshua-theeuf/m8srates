@@ -7,7 +7,7 @@
   -startDate = Date.today.to_s
   -borrowerFirstName = messages.first[:sender][:first_name]
   -borrowerLastName = messages.first[:sender][:last_name]
-  -price = (listing[:price_cents]/100)
+  -price = listing[:price_cents]/100
   -dueDate = listing[:duedate]
   -interestRate = listing[:interest]
   -totalPrice = number_with_precision((((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))/100.00).to_d, precision:2)
@@ -20,7 +20,7 @@
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"history.go(0)"
 
-      
+
   -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] !="I cannot accept these loan conditions"
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
