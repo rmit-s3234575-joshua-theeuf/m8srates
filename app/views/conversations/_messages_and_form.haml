@@ -39,6 +39,36 @@
   -borrowerLastName = messages.first[:sender][:last_name]
   -price = listing[:price_cents]/100
   -dueDate = listing[:duedate]
+  -dueDate.split("-")
+  -year = dueDate[0]+ start[1]+dueDate[2]+dueDate[3]
+  -month = dueDate[5]+dueDate[6]
+  -day = dueDate[8]+dueDate[9]
+  -case month.to_i
+  -when 1
+    - m = "January"
+  -when 2
+    - m = "February"
+  -when 3
+    - m = "March"
+  -when 4
+    - m = "April"
+  -when 5
+    - m = "May"
+  -when 6
+    - m = "June"
+  -when 7
+    -m ="July"
+  -when 8
+    -m = "August"
+  -when 9
+    -m = "September"
+  -when 10
+    -m = "October"
+  -when 11
+    -m = "November"
+  -when 12
+    -m = "December"
+  -dueDate = day+", "+m+", "+year
   -interestRate = listing[:interest]
   -totalPrice = number_with_precision((((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))/100.00).to_d, precision:2)
   #reply_form.message-avatar-padding.message-reply-form
