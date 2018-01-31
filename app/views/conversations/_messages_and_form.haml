@@ -91,7 +91,7 @@
       = a.label :content, t("conversations.show.write_a_reply")
       %strong How do you want to recive the funds?
       %br
-      = %span{:class=>"block-inline",:style=>"width:100%;font-size:7;"}
+      %span{:class=>"block-inline",:style=>"width:100%;font-size:7;"}
         = label_tag("Electronic_Funds_Transfer","Electronic Funds Transfer", {class:"inline"})
         = radio_button_tag("Electronic Funds Transfer", false, {class: "radio-inline"})
         = a.text_area :content, :class=>"reply_form_text_area", :value=>"Enter Account Name: #{%br} Enter Account Number: #{%br} Enter BSB: ", :style=>"visibility:hidden"
