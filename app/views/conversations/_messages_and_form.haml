@@ -91,12 +91,12 @@
       %strong How do you want to recive the funds?
       %br
       %span{:class=>"block-inline",:style=>"width:100%;font-size:7;"}
-        = label_tag("Electronic_Funds_Transfer","Electronic Funds Transfer", {class:"inline"})
-        = radio_button_tag(:message, "Electronic Funds Transfer", false, {class: "radio-inline", onclick:"yesnoCheck()"})
+        = label_tag("radio_Electronic_Funds_Transfer","Electronic Funds Transfer", {class:"inline"})
+        = radio_button_tag(:radio, "Electronic Funds Transfer", false, {class: "radio-inline", onclick:"yesnoCheck()"})
       %br
       %span{:class=>"block-inline", :style=>"width:100%;font-size:7;"}
-        = label_tag("message_Cash","Cash", {class:"inline"})
-        = radio_button_tag(:message, "Cash", false, {class: "radio-inline", onclick:"yesnoCheck()"})
+        = label_tag("radio_Cash","Cash", {class:"inline"})
+        = radio_button_tag(:radio, "Cash", false, {class: "radio-inline", onclick:"yesnoCheck()"})
         = a.label :content, t("conversations.show.write_a_reply"), :id="reply", :style=>"display:none"
         = a.text_area :content, :class=>"reply_form_text_area", :value=>"Enter Account Name:  Enter Account Number:  Enter BSB: ", :style=>"display:none"
       = a.hidden_field :conversation_id
@@ -110,8 +110,8 @@
 
 :javascript
   function yesnoCheck() {
-    if (document.getElementById('message_Electronic_Funds_Transfer').checked) {
-        document.getElementById('message_content').style.display = 'inline-block';
+    if (document.getElementById('radio_Electronic_Funds_Transfer').checked) {
+        document.getElementById('radio_content').style.display = 'inline-block';
         documnet.getElementById('reply').style.display="inline-block"
 
     }
