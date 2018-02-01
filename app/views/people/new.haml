@@ -59,6 +59,14 @@
     = form.label :password2, t('.password_again')
     = form.password_field :password2, :class => :text_field, :maxlength => "255"
 
+    -#Bank account details. This will include bsb, account name, and account number.
+    %h3=t('banking.title')
+    = form.label :account_name, t('banking.accountName')
+    = form.text_field :account_name, :class=> :text_field, :maxlength=>"255"
+    = form.label :bsb, t('banking.bsb')
+    = form.text_field :bsb, :class=> :text_field, :maxlength=>"6"
+    = form.label :account_number, t('banking.account_number')
+    = form.text_field :account_number, :class=> :text_field, :maxlength=>"255"
     -# Terms
     .outer-checkbox-container
       .checkbox-container
