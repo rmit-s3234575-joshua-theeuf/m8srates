@@ -42,6 +42,9 @@
 #  min_days_between_community_updates :integer          default(1)
 #  deleted                            :boolean          default(FALSE)
 #  cloned_from                        :string(22)
+#  account_name                       :string(255)
+#  account_number                     :string(255)
+#  bsb                                :integer
 #
 # Indexes
 #
