@@ -74,6 +74,7 @@
   -bsb = @current_user.bsb
   -account_name= @current_user.account_name
   -account_number = @current_user.account_number
+-if listing[:category_id] == 5
   #reply_form.message-avatar-padding.message-reply-form
   -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] =="I accept the loan conditions"
     = form_for message_form, :url => message_form_action do |a|
@@ -122,7 +123,8 @@
       = a.text_area :content, :class => "reply_form_text_area", :placeholder=>"Discuss further details of the loan."
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"window.location.reload()"
-
+-if listing[:category_id] == 3
+  @listing.attributes
 
 
 %messages
