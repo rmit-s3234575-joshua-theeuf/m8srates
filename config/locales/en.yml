@@ -659,7 +659,7 @@ en:
         offer: Request
         inquiry: Contact
   banking:
-    title: "In the following section you will be able to add the bank account in which you will recieve funds too. This is required if you intend on performing electronic fund transfers."
+    title: "Bank Account Details"
     account_name: "Please enter your the account name of where you will want the Electronic funds transfer to be sent too."
     account_number: "Please enter your account number. This is generally found directly to the left of your bsb."
     bsb: "Please enter your bsb  number. This is 6 numbers long. Please enter without the dashes between the numbers."
