@@ -71,7 +71,9 @@
   -dueDate = day+", "+m+", "+year
   -interestRate = listing[:interest]
   -totalPrice = number_with_precision((((listing[:price_cents].to_i)*(1+((listing[:interest].to_i)/100.00)))/100.00).to_d, precision:2)
-  =@current_user.attributes
+  -bsb = @current_user.bsb
+  -account_name= @current_user.account_name
+  -account_number = @current_user.account_number
   #reply_form.message-avatar-padding.message-reply-form
   -if messages.count == 1 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content] =="I accept the loan conditions"
     = form_for message_form, :url => message_form_action do |a|
@@ -99,13 +101,13 @@
         = label_tag("radio_Cash","Cash", {class:"inline"})
         = radio_button_tag(:radio, "Cash", false, {class: "radio-inline", onclick:"yesnoCheck()"})
         = a.label :content, t("conversations.show.write_a_reply"), :id=>"reply", :style=>"display:none"
-        = a.text_area :content, :class=>"reply_form_text_area", :value=>"", :style=>"display:none"
+        = a.text_area :content, :class=>"reply_form_text_area", :value=>"Account Name: #{account_name} Account Number: #{account_number}   BSB:#{bsb}", :style=>"display:none"
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"window.location.reload()"
   -if messages.count == 4 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content].to_s.downcase.include?("acc")
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
-      = a.text_area :content, :class => "reply_form_text_area", :value=>"Funds have been transfered. Reciept Number: My bank details are. Enter Account Name:  Enter Account Number:  Enter BSB:"
+      = a.text_area :content, :class => "reply_form_text_area", :value=>"Funds have been transfered. Reciept Number: My bank details are. Account Name: #{account_name}  Account Number: #{account_number}   BSB: #{bsb}"
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"window.location.reload()"
   -if messages.count == 4 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content].to_s.downcase.include?("cash")
@@ -132,7 +134,6 @@
   function yesnoCheck() {
     if (document.getElementById('radio_Electronic_Funds_Transfer').checked) {
         document.getElementById('message_content').style.display = 'inline-block';
-        document.getElementById('message_content').value="Enter Account Name:  Enter Account Number:  Enter BSB: "
         document.getElementById('reply').style.display="inline-block"
 
     }
