@@ -154,6 +154,9 @@ class Person < ApplicationRecord
   validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
   validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
   validates_length_of :display_name, :within => 1..30, :allow_nil => true, :allow_blank => true
+  validates_length_of :bsb, :within => 1..6, :allow_nil => true, :allow_blank => true
+  validates_length_of :account_name, :within => 1..255, :allow_nil => true, :allow_blank => true
+  validates_length_of :account_number, :within => 1..255, :allow_nil => true, :allow_blank => true    
 
   validates_format_of :username,
                        :with => /\A[A-Z0-9_]*\z/i
