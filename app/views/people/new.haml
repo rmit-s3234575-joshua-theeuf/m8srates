@@ -60,7 +60,7 @@
     = form.password_field :password2, :class => :text_field, :maxlength => "255"
 
     -#Bank account details. This will include bsb, account name, and account number.
-    %h3=t('banking.title'),{:style=>"text-decoration:underline;"}
+    %h3=t('banking.title')
     = form.label :account_name, t('banking.accountName')
     = form.text_field :account_name, :class=> :text_field, :maxlength=>"255"
     = form.label :bsb, t('banking.bsb')
