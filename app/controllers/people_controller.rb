@@ -375,6 +375,9 @@ class PeopleController < Devise::RegistrationsController
         :username,
         :test_group_number,
         :community_id,
+        :bsb,
+        :account_name,
+        :account_number,
     ).permit!
   end
 
@@ -390,6 +393,9 @@ class PeopleController < Devise::RegistrationsController
         { location: [:address, :google_address, :latitude, :longitude] },
         :password,
         :password2,
+        :bsb,
+        :account_name,
+        :account_number,
         { send_notifications: [] },
         { email_attributes: [:address] },
         :min_days_between_community_updates,
