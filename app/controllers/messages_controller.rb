@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
 
     message_params = params.require(:message).permit(
       :conversation_id,
-      :content
+      :content,
       :repayed
     ).merge(
       sender_id: @current_user.id
