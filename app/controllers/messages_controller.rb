@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
       return redirect_to search_path
     end
 
-    message_params = params.require(:message).permit(
+    message_params = params.require(:message, :repayed).permit(
       :conversation_id,
       :content,
       :repayed
