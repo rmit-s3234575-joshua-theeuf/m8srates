@@ -1,5 +1,0 @@
-class AddNumberOfLoansToListings < ActiveRecord::Migration[5.1]
-  def change
-    add_column :listings, :integ, :number_of_loans
-  end
-end
