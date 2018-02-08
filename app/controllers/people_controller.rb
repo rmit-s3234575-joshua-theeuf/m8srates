@@ -78,7 +78,7 @@ class PeopleController < Devise::RegistrationsController
     session[:invitation_code] = params[:code] if params[:code]
 
     @person = if params[:person] then
-      Person.new(params[:person].slice(:given_name, :family_name, :email, :username, :account_name, :account_number, :bsb).permit!)
+      Person.new(params[:person].slice(:given_name, :family_name, :email, :username).permit!)
     else
       Person.new()
     end
@@ -375,9 +375,6 @@ class PeopleController < Devise::RegistrationsController
         :username,
         :test_group_number,
         :community_id,
-        :bsb,
-        :account_name,
-        :account_number,
     ).permit!
   end
 
@@ -393,9 +390,6 @@ class PeopleController < Devise::RegistrationsController
         { location: [:address, :google_address, :latitude, :longitude] },
         :password,
         :password2,
-        :bsb,
-        :account_name,
-        :account_number,
         { send_notifications: [] },
         { email_attributes: [:address] },
         :min_days_between_community_updates,
