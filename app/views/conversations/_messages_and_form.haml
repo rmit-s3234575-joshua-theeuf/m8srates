@@ -81,7 +81,6 @@
       = a.label :content, t("conversations.show.write_a_reply")
       = a.text_area :content, :class => "reply_form_text_area", :value=>"On #{startDate}, I, #{lenderFirstName} #{lenderLastName} will lend #{borrowerFirstName} #{borrowerLastName} a sum of $#{price} in the form of (cash, check, traveler’s check, or money order), which is to be repaid in full by #{dueDate}. The interest rate is #{interestRate}% and as a result, the amount due on #{dueDate} is $#{totalPrice}. ", :readonly=> true
       = a.hidden_field :conversation_id
-      = a.hidden_field :repayed, :value=>0
       = a.button t("conversations.show.send_reply"), :onClick=>"window.location.reload()"
 
 
@@ -89,7 +88,6 @@
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
       = a.text_area :content, :class => "reply_form_text_area", :value=>"	  On #{startDate}, I, #{borrowerFirstName} #{borrowerLastName} agree to borrow money from #{lenderFirstName} #{lenderLastName} a sum of $#{price} in the form of (cash, electronic funds transfer), which is to be repaid in full by #{dueDate}. At the specified interest rate of #{interestRate}% and as a result, the amount due on #{dueDate} is $#{totalPrice}.", :readonly=> true
-      = a.hidden_field :repayed, :value=>0
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"window.location.reload()"
   -if messages.count == 3 && @current_user.id.to_s.downcase  ==  messages.first[:sender][:id].to_s.downcase && messages.first[:content] !="I cannot accept these loan conditions"
@@ -105,21 +103,18 @@
         = radio_button_tag(:radio, "Cash", false, {class: "radio-inline", onclick:"yesnoCheck()"})
         = a.label :content, t("conversations.show.write_a_reply"), :id=>"reply", :style=>"display:none"
         = a.text_area :content, :class=>"reply_form_text_area", :value=>"Account Name: #{account_name} Account Number: #{account_number}   BSB:#{bsb}", :style=>"display:none"
-      = a.hidden_field :repayed, :value=>0
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"window.location.reload()"
   -if messages.count == 4 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content].to_s.downcase.include?("acc")
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
       = a.text_area :content, :class => "reply_form_text_area", :value=>"Funds have been transfered. Reciept Number: My bank details are. Account Name: #{account_name}  Account Number: #{account_number}   BSB: #{bsb}"
-      = a.hidden_field :repayed, :value=>0
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"window.location.reload()"
   -if messages.count == 4 && @current_user.id.to_s.downcase  !=  messages.first[:sender][:id].to_s.downcase && messages.first[:content].to_s.downcase.include?("cash")
     = form_for message_form, :url => message_form_action do |a|
       = a.label :content, t("conversations.show.write_a_reply")
       = a.text_area :content, :class => "reply_form_text_area", :placeholder=>"Organise the exchange of cash."
-      = a.hidden_field :repayed, :value=>0
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"window.location.reload()"
   -if messages.count >= 5
@@ -127,8 +122,6 @@
       = a.label :content, t("conversations.show.write_a_reply")
       = a.text_area :content, :class => "reply_form_text_area", :placeholder=>"Discuss further details of the loan."
       -if @current_user.id.tos.downcse == messages.first[:sender][:id]
-        = a.label "Have you repayed the loan yet?"
-        = check_box_tag(:repayed)
       = a.hidden_field :conversation_id
       = a.button t("conversations.show.send_reply"), :onClick=>"window.location.reload()"
 -#this adds a mesaging platfrom for the borrowers.
