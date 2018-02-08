@@ -582,7 +582,6 @@ DEPENDENCIES
   annotate (~> 2.7.1)
   awesome_print (~> 1.7.0)
   aws-sdk (~> 2.9.25)
-  bcrypt (~> 3.1.7)
   better_errors (~> 2.1.1)
   binding_of_caller
   biz
@@ -679,4 +678,4 @@ RUBY VERSION
    ruby 2.3.4p301
 
 BUNDLED WITH
-   1.16.1
+   1.15.4
