@@ -48,8 +48,5 @@ class MessagesController < ApplicationController
   def is_participant?(person, conversation_id)
     Conversation.find(conversation_id).participant?(person)
   end
-  def countMessages(person,conversastion_id)
-    Conversation.find(converstation_id).count
-  end
 
 end
