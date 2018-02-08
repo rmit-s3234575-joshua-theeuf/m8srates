@@ -14,8 +14,7 @@ module MarketplaceService
         :created_at,
         :last_message_at,
         :starter_person,
-        :other_person,
-        :starting_page
+        :other_person
       )
 
       Message = EntityUtils.define_entity(
@@ -40,8 +39,7 @@ module MarketplaceService
           created_at: conversation_model.created_at,
           last_message_at: conversation_model.last_message_at,
           starter_person: PersonEntity.person(conversation_model.starter, community_id),
-          other_person: PersonEntity.person(conversation_model.other_party(conversation_model.starter), community_id),
-          starting_page: conversation_model.starting_page
+          other_person: PersonEntity.person(conversation_model.other_party(conversation_model.starter), community_id)
         }]
       end
 
@@ -117,18 +115,56 @@ module MarketplaceService
 
       def latest_messages_for_conversations(conversation_ids)
         return [] if conversation_ids.empty?
-        Message.by_converation_ids(conversation_ids).latest_for_conversation
-          .map{|m| [m.conversation_id, [m.content, m.created_at]]}.to_h
+
+        connection = ActiveRecord::Base.connection
+
+        message_sql = SQLUtils.ar_quote(connection, @construct_last_message_content_sql, conversation_ids: conversation_ids)
+        latest_messages = connection.execute(message_sql).reduce({}) { |memo, (id, conversation_id, content, created_at)|
+          _, memo_id, memo_at = memo[conversation_id]
+          if( memo_at.nil? || memo_at < created_at || memo_id < id)
+            memo[conversation_id] = [content, id, created_at]
+          end
+          memo
+        }
+
+        HashUtils.map_values(latest_messages) { |(content, _, at)| [content, at] }
       end
 
+      @construct_last_message_content_sql = ->(params){
+        "
+          SELECT id, conversation_id, content, created_at FROM messages WHERE conversation_id in (#{params[:conversation_ids].join(',')})
+        "
+      }
+
       def conversations_for_community(community_id, sort_field, sort_direction, limit, offset)
-        conversations = ConversationModel.non_payment_or_free(community_id)
-          .order("#{sort_field} #{sort_direction}").limit(limit).offset(offset)
+        query = <<-SQL
+        SELECT c.* FROM conversations c
+        WHERE c.community_id = #{community_id}
+          AND (c.starting_page IS NULL OR c.starting_page != '#{::Conversation::PAYMENT}')
+          AND c.id NOT IN (SELECT conversation_id FROM transactions
+                           WHERE transactions.community_id = #{community_id}
+                           AND transactions.current_state <> 'free')
+        ORDER BY #{sort_field} #{sort_direction}
+        LIMIT #{limit} OFFSET #{offset}
+        SQL
+        conversations = ConversationModel.find_by_sql(query)
         conversations.map{|conversation| Entity.conversation(conversation, community_id) }
       end
 
       def count_for_community(community_id)
-        ConversationModel.non_payment_or_free(community_id).count
+        query = <<-SQL
+        SELECT count(*) FROM conversations c
+        WHERE c.community_id = #{community_id}
+          AND (c.starting_page IS NULL OR c.starting_page != '#{::Conversation::PAYMENT}')
+          AND c.id NOT IN (SELECT conversation_id FROM transactions
+                           WHERE transactions.community_id = #{community_id}
+                           AND transactions.current_state <> 'free')
+        SQL
+        ActiveRecord::Base.connection.select_value(query)
+      end
+
+      def base_community_conversations_query(community_id)
+        query
       end
     end
   end
